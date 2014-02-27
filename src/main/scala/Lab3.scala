@@ -6,31 +6,8 @@ object Lab3 extends jsy.util.JsyApplication {
    * Dominic Tonozzi
    * 
    * Partner: Matthias Sainz
-   * Collaborators: Jacob Resman and Kelsey
    */
 
-  /*
-   * Fill in the appropriate portions above by replacing things delimited
-   * by '<'... '>'.
-   * 
-   * Replace 'YourIdentiKey' in the object name above with your IdentiKey.
-   * 
-   * Replace the 'throw new UnsupportedOperationException' expression with
-   * your code in each function.
-   * 
-   * Do not make other modifications to this template, such as
-   * - adding "extends App" or "extends Application" to your Lab object,
-   * - adding a "main" method, and
-   * - leaving any failing asserts.
-   * 
-   * Your lab will not be graded if it does not compile.
-   * 
-   * This template compiles without error. Before you submit comment out any
-   * code that does not compile or causes a failing assert.  Simply put in a
-   * 'throws new UnsupportedOperationException' as needed to get something
-   * that compiles without error.
-   */
-  
   type Env = Map[String, Expr]
   val emp: Env = Map()
   def get(env: Env, x: String): Expr = env(x)
@@ -134,7 +111,8 @@ object Lab3 extends jsy.util.JsyApplication {
       case Binary(Times, e1, e2) => N(eToN(e1) * eToN(e2))
       case Binary(Div, e1, e2) => N(eToN(e1) / eToN(e2))
       
-      case Binary(bop @ (Eq | Ne), e1, e2) => throw new UnsupportedOperationException
+      case Binary(Eq, e1, e2) => B(eToVal(e1) == eToVal(e2))
+      case Binary(Ne, e1, e2) => B(eToVal(e1) != eToVal(e2))
       case Binary(bop @ (Lt|Le|Gt|Ge), e1, e2) => B(inequalityVal(bop, eToVal(e1), eToVal(e2)))
       
       case Binary(And, e1, e2) => 
@@ -149,6 +127,18 @@ object Lab3 extends jsy.util.JsyApplication {
       case If(e1, e2, e3) => if (eToB(e1)) eToVal(e2) else eToVal(e3)
       
       case ConstDecl(x, e1, e2) => eval(extend(env, x, eToVal(e1)), e2)
+      
+      case Call(e1, e2) => eval(env, e1) match {
+        case Function(None, x, p) => {
+          val env1 = extend(env, x, eval(env, e2))
+          eval(env1, p)
+        }
+        case f @ Function(Some(n), x, p) => {
+          val env1 = extend(env, n, f)
+          val env2 = extend(env1, x, eval(env, e2))
+          eval(env2, p)}
+        case _ => throw new DynamicTypeError(e)
+      }
       
       case _ => throw new UnsupportedOperationException
     }
