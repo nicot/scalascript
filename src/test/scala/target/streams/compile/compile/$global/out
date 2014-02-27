@@ -1,0 +1,55 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mModified external sources: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/nico/documents/scala/lab3/src/test/scala/target/scala-2.10/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 1a1e5304, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-7-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk/jre/classes:/home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/nico/documents/scala/lab3/src/test/scala/target/scala-2.10/classes[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:1: object scalatest is not a member of package org[0m
+[0m[[31merror[0m] [0mimport org.scalatest._[0m
+[0m[[31merror[0m] [0m           ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:2: not found: object jsy[0m
+[0m[[31merror[0m] [0mimport jsy.lab3.ast._[0m
+[0m[[31merror[0m] [0m       ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:3: not found: object Lab3[0m
+[0m[[31merror[0m] [0mimport Lab3._[0m
+[0m[[31merror[0m] [0m       ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:5: not found: type FlatSpec[0m
+[0m[[31merror[0m] [0mclass FunctionCallSpec extends FlatSpec {[0m
+[0m[[31merror[0m] [0m                               ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:7: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "Functions" should "be considered values" in {[0m
+[0m[[31merror[0m] [0m              ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:16: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "Call" should "evaluate a function using big-step semantics" in {[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:25: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "Call" should "handle recursive functions using big-step semantics" in {[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:36: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "Call" should "evaluate a function using small-step semantics" in {[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/test/scala/FunctionCallSpec.scala:45: value should is not a member of String[0m
+[0m[[31merror[0m] [0m  "Call" should "handle recursive functions using small-step semantics" in {[0m
+[0m[[31merror[0m] [0m         ^[0m
+[0m[[31merror[0m] [0m9 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompile[0m) Compilation failed[0m
