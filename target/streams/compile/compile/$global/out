@@ -16,18 +16,13 @@
 [0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/nico/documents/scala/lab3/target/scala-2.10/classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 735ea310, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 16d57281, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-7-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk/jre/classes:/home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	/home/nico/documents/scala/lab3/target/scala-2.10/classes:/home/nico/documents/scala/lab3/lib/liblab3.jar:/home/nico/documents/scala/lab3/lib/scalatest_2.10-2.0.jar[0m
-[0m[[33mwarn[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:228: match may not be exhaustive.[0m
-[0m[[33mwarn[0m] [0mIt would fail on the following inputs: Div, Eq, Ge, Gt, Le, Lt, Minus, Ne, Plus, Seq, Times[0m
-[0m[[33mwarn[0m] [0m      case Binary(op, v1, e2) if isValue(v1) => op match {[0m
-[0m[[33mwarn[0m] [0m                                                ^[0m
-[0m[[33mwarn[0m] [0mone warning found[0m
-[0m[[0mdebug[0m] [0mScala compilation took 41.039439681 s[0m
+[0m[[0mdebug[0m] [0mScala compilation took 40.518034985 s[0m
 [0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set()[0m
 [0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set()[0m
 [0m[[0mdebug[0m] [0mNew invalidations:[0m

@@ -209,8 +209,8 @@ object Lab3 extends jsy.util.JsyApplication {
         op match {
         case Plus => N(n1 + n2)
         case Minus => N(n1 - n2)
-        case Times => N(n1 - n2)
-        case Div => N(n1 - n2)
+        case Times => N(n1 * n2)
+        case Div => N(n1 / n2)
         //Logic
         case Eq => B(n1 == n2)
         case Ne => B(n1 != n2)
@@ -222,12 +222,6 @@ object Lab3 extends jsy.util.JsyApplication {
         case Or => if (!toBoolean(v2)) v1 else v2
 
         case _ => println("simple binary fell through"); throw new UnsupportedOperationException
-      }
-
-      // Short circuiting binary operations
-      case Binary(op, v1, e2) if isValue(v1) => op match {
-        case And => if (toBoolean(v1)) e2 else v1
-        case Or => if (toBoolean(v1)) v1 else e2
       }
 
       case If(v1, e2, e3) if isValue(v1) => if (toBoolean(v1)) e2 else e3
@@ -249,10 +243,21 @@ object Lab3 extends jsy.util.JsyApplication {
           Call(e1, e2p)
         case Var(_) => N(toNumber(e2))
         // Were calling but the first argument isn't a function
-        case isValue(e1) => throw new DynamicTypeError(e)
-        case _ => call(step(e1), e2)
+        case _ if (isValue(e1)) => throw new DynamicTypeError(e)
+        case _ => Call(step(e1), e2)
       }
-      
+      case Binary(And, v1, e2) if (isValue(v1)) =>
+        if (toBoolean(v1)) v1 else e2
+      case Binary(Or, v1, e2) if (isValue(v1)) =>
+        if (toBoolean(v1)) e2 else v1
+      case Binary(op, v1, e2) if (isValue(v1)) => v1 match {
+        case Function(_,_,_) => throw new DynamicTypeError(e)
+        case _ => Binary(op, v1, step(e2))
+      }
+      case Binary(op, e1, e2) => Binary(op, step(e1), e2)
+      case Unary(op, e1) => Unary(op, step(e1))
+      case If(e1, e2, e3) => If(step(e1), e2, e3)
+      case ConstDecl(x, e1, e2) => ConstDecl(x, step(e1), e2)
       
       /* Cases that should never match. Your cases above should ensure this. */
       case Var(_) => throw new AssertionError("Gremlins: internal error, not closed expression.")
