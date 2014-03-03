@@ -16,39 +16,21 @@
 [0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/nico/documents/scala/lab3/target/scala-2.10/classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.3[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 25b8eb20, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 735ea310, interfacing (CompilerInterface) with Scala compiler version 2.10.3[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-7-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/netx.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/plugin.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk/jre/classes:/home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	/home/nico/documents/scala/lab3/target/scala-2.10/classes:/home/nico/documents/scala/lab3/lib/liblab3.jar:/home/nico/documents/scala/lab3/lib/scalatest_2.10-2.0.jar[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:204: 'case' expected but 'val' found.[0m
-[0m[[31merror[0m] [0m        val n1 = toNumber(v1)[0m
-[0m[[31merror[0m] [0m        ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:205: '}' expected but ';' found.[0m
-[0m[[31merror[0m] [0m        val n2 = toNumber(v2)[0m
-[0m[[31merror[0m] [0m^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:218: '(' expected but identifier found.[0m
-[0m[[31merror[0m] [0m        case And => if toBoolean(v1) v2 else v1[0m
-[0m[[31merror[0m] [0m                       ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:219: illegal start of simple expression[0m
-[0m[[31merror[0m] [0m        case Or => if !toBoolean(v2) v1 else v2[0m
-[0m[[31merror[0m] [0m        ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:225: '}' expected but 'case' found.[0m
-[0m[[31merror[0m] [0m      case Binary(op, v1, e2) if isValue(v1) => op match {[0m
-[0m[[31merror[0m] [0m      ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:231: illegal start of definition[0m
-[0m[[31merror[0m] [0m      case Print(e1) => Print(step(e1))[0m
-[0m[[31merror[0m] [0m      ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:236: illegal start of definition[0m
-[0m[[31merror[0m] [0m      case Var(_) => throw new AssertionError("Gremlins: internal error, not closed expression.")[0m
-[0m[[31merror[0m] [0m      ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:237: illegal start of definition[0m
-[0m[[31merror[0m] [0m      case N(_) | B(_) | Undefined | S(_) | Function(_, _, _) => throw new AssertionError("Gremlins: internal error, step should not be called on values.");[0m
-[0m[[31merror[0m] [0m      ^[0m
-[0m[[31merror[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:239: eof expected but '}' found.[0m
-[0m[[31merror[0m] [0m  }[0m
-[0m[[31merror[0m] [0m  ^[0m
-[0m[[31merror[0m] [0m9 errors found[0m
-[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
-[0m[[31merror[0m] [0m(lab3/compile:[31mcompile[0m) Compilation failed[0m
+[0m[[33mwarn[0m] [0m/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala:228: match may not be exhaustive.[0m
+[0m[[33mwarn[0m] [0mIt would fail on the following inputs: Div, Eq, Ge, Gt, Le, Lt, Minus, Ne, Plus, Seq, Times[0m
+[0m[[33mwarn[0m] [0m      case Binary(op, v1, e2) if isValue(v1) => op match {[0m
+[0m[[33mwarn[0m] [0m                                                ^[0m
+[0m[[33mwarn[0m] [0mone warning found[0m
+[0m[[0mdebug[0m] [0mScala compilation took 41.039439681 s[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set()[0m
+[0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set()[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m

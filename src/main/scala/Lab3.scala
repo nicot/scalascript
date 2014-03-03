@@ -183,15 +183,17 @@ object Lab3 extends jsy.util.JsyApplication {
       /* Base Cases */
       // Unary operations
       case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
-      case Unary(Neg, v1) if isValue(v1) => B(-toNumber(v1))
+      case Unary(Neg, v1) if isValue(v1) => N(-toNumber(v1))
       case Unary(Not, v1) if isValue(v1) => B(!toBoolean(v1))
 
       // Simple binary operations
-      case Binary(Seq, v1, e2) if isvalue(v1) => e2
+      case Binary(Seq, v1, e2) if isValue(v1) => e2
+      case Binary(_,Function(_,_,_),_) => throw new DynamicTypeError(e)
+      case Binary(_,_,Function(_,_,_)) => throw new DynamicTypeError(e)
       // String Binary Operations
       case Binary(Plus, S(s1), v2) => S(s1 + toStr(v2))
       case Binary(Plus, v1, S(s2)) => S(toStr(v1) + s2)
-      case Binary(op, S(s1), S(s2)) => op match {
+      case Binary(_, S(s1), S(s2)) => e match {
         case Binary(Eq, S(s1), S(s2)) => B(s1 == s2)
         case Binary(Ne, S(s1), S(s2)) => B(s1 != s2)
         case Binary(Lt, S(s1), S(s2)) => B(s1 < s2)
@@ -200,37 +202,57 @@ object Lab3 extends jsy.util.JsyApplication {
         case Binary(Ge, S(s1), S(s2)) => B(s1 >= s2)
       }
       // Arithmetic
-      case Binary(op, v1, v2) if isValue(v1) && isValue(v2) => op match{
+      case Binary(op, v1, v2) if (isValue(v1)) && (isValue(v2)) =>
         val n1 = toNumber(v1)
         val n2 = toNumber(v2)
 
+        op match {
         case Plus => N(n1 + n2)
         case Minus => N(n1 - n2)
         case Times => N(n1 - n2)
         case Div => N(n1 - n2)
         //Logic
-        case Eq => B(v1 == v2)
-        case Ne => B(v1 != v2)
-        case Lt => B(v1 < v2)
-        case Le => B(v1 <= v2)
-        case Gt => B(v1 > v2)
-        case Ge => B(v1 >= v2)
-        case And => if toBoolean(v1) v2 else v1
-        case Or => if !toBoolean(v2) v1 else v2
+        case Eq => B(n1 == n2)
+        case Ne => B(n1 != n2)
+        case Lt => B(n1 < n2)
+        case Le => B(n1 <= n2)
+        case Gt => B(n1 > n2)
+        case Ge => B(n1 >= n2)
+        case And => if (toBoolean(v1)) v2 else v1
+        case Or => if (!toBoolean(v2)) v1 else v2
 
         case _ => println("simple binary fell through"); throw new UnsupportedOperationException
       }
 
       // Short circuiting binary operations
       case Binary(op, v1, e2) if isValue(v1) => op match {
-        case And => if toBoolean(v1) e2 else v1
-        case Or => if toBoolean(v1) v1 else e2
+        case And => if (toBoolean(v1)) e2 else v1
+        case Or => if (toBoolean(v1)) v1 else e2
       }
+
+      case If(v1, e2, e3) if isValue(v1) => if (toBoolean(v1)) e2 else e3
+      case ConstDecl(x, v1, e2) if (isValue(v1)) => substitute(e2, v1, x)
+      //e2 is the body, v1 is the value of the variable, x is the binding.
       
+      case Call(v1, v2) if (isValue(v1) && isValue(v2)) => v1 match {
+        case Function(None, x, e1) => substitute(e1, v2, x)
+        case Function(Some(n), x2, e1) =>
+          substitute(substitute(e1, v1, n), v2, x2)
+        case _ => throw new DynamicTypeError(e)
+      }
+
       /* Inductive Cases */
       case Print(e1) => Print(step(e1))
+      case Call(e1, e2) => e1 match {
+        case Function(_,_,_) =>
+          val e2p = step(e2)
+          Call(e1, e2p)
+        case Var(_) => N(toNumber(e2))
+        // Were calling but the first argument isn't a function
+        case isValue(e1) => throw new DynamicTypeError(e)
+        case _ => call(step(e1), e2)
+      }
       
-        // ****** Your cases here
       
       /* Cases that should never match. Your cases above should ensure this. */
       case Var(_) => throw new AssertionError("Gremlins: internal error, not closed expression.")
