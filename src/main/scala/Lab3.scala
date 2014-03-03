@@ -95,13 +95,17 @@ object Lab3 extends jsy.util.JsyApplication {
       /* Base Cases */
       case _ if isValue(e) => e
       case Var(x) => get(env, x)
-      
+
       /* Inductive Cases */
-      case Print(e1) => println(pretty(eval(env, e1))); Undefined
+      case Binary(_, Function(_,_,_), e2) => if (e2 == Undefined) B(false) else throw new DynamicTypeError(e)
+      case Binary(_, e1, Function(_,_,_)) => if (e1 == Undefined) B(false) else throw new DynamicTypeError(e)
       
+      // Unary operators
+      case Print(e1) => println(pretty(eval(env, e1))); Undefined
       case Unary(Neg, e1) => N(- eToN(e1))
       case Unary(Not, e1) => B(! eToB(e1))
       
+      // Binary operators
       case Binary(Plus, e1, e2) => (eToVal(e1), eToVal(e2)) match {
         case (S(s1), v2) => S(s1 + toStr(v2))
         case (v1, S(s2)) => S(toStr(v1) + s2)
@@ -124,19 +128,19 @@ object Lab3 extends jsy.util.JsyApplication {
       
       case Binary(Seq, e1, e2) => eToVal(e1); eToVal(e2)
       
+      // Special operators
       case If(e1, e2, e3) => if (eToB(e1)) eToVal(e2) else eToVal(e3)
       
       case ConstDecl(x, e1, e2) => eval(extend(env, x, eToVal(e1)), e2)
       
       case Call(e1, e2) => eval(env, e1) match {
-        case Function(None, x, p) => {
+        case Function(None, x, p) =>
           val env1 = extend(env, x, eval(env, e2))
           eval(env1, p)
-        }
-        case f @ Function(Some(n), x, p) => {
+        case f @ Function(Some(n), x, p) =>
           val env1 = extend(env, n, f)
           val env2 = extend(env1, x, eval(env, e2))
-          eval(env2, p)}
+          eval(env2, p)
         case _ => throw new DynamicTypeError(e)
       }
       
@@ -155,19 +159,75 @@ object Lab3 extends jsy.util.JsyApplication {
     /* Body */
     e match {
       case N(_) | B(_) | Undefined | S(_) => e
+      case Var(y) => if (y == x) v else e
+
       case Print(e1) => Print(subst(e1))
-      case _ => throw new UnsupportedOperationException
+      case Unary(uop, e1) => Unary(uop, subst(e1))
+      case Binary(bop, e1, e2) => Binary(bop, subst(e1), subst(e2))
+
+      case If(e1, e2, e3) => If(subst(e1), subst(e2), subst(e3))
+      // First argument is the variable name, second is the expression that y should equal and last is the body
+      // if the top level variable name is the same as the inner one, no need to substitute
+      case ConstDecl(y, e1, e2) => ConstDecl(y, subst(e1), if (y == x) e2 else subst(e2))
+      case Call(e1, e2) => Call(subst(e1), subst(e2))
+      // First argument is a parameter, second is the function name, third is the body
+      case Function(p, y, e1) =>
+        if (Some(x) == p || x == y) Function(p, y, e1)
+        else Function(p, y, subst(e1))
+      case _ => println("subst case fell through"); throw new UnsupportedOperationException
     }
   }
     
   def step(e: Expr): Expr = {
     e match {
-      /* Base Cases: Do Rules */
+      /* Base Cases */
+      // Unary operations
       case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
+      case Unary(Neg, v1) if isValue(v1) => B(-toNumber(v1))
+      case Unary(Not, v1) if isValue(v1) => B(!toBoolean(v1))
+
+      // Simple binary operations
+      case Binary(Seq, v1, e2) if isvalue(v1) => e2
+      // String Binary Operations
+      case Binary(Plus, S(s1), v2) => S(s1 + toStr(v2))
+      case Binary(Plus, v1, S(s2)) => S(toStr(v1) + s2)
+      case Binary(op, S(s1), S(s2)) => op match {
+        case Binary(Eq, S(s1), S(s2)) => B(s1 == s2)
+        case Binary(Ne, S(s1), S(s2)) => B(s1 != s2)
+        case Binary(Lt, S(s1), S(s2)) => B(s1 < s2)
+        case Binary(Le, S(s1), S(s2)) => B(s1 <= s2)
+        case Binary(Gt, S(s1), S(s2)) => B(s1 > s2)
+        case Binary(Ge, S(s1), S(s2)) => B(s1 >= s2)
+      }
+      // Arithmetic
+      case Binary(op, v1, v2) if isValue(v1) && isValue(v2) => op match{
+        val n1 = toNumber(v1)
+        val n2 = toNumber(v2)
+
+        case Plus => N(n1 + n2)
+        case Minus => N(n1 - n2)
+        case Times => N(n1 - n2)
+        case Div => N(n1 - n2)
+        //Logic
+        case Eq => B(v1 == v2)
+        case Ne => B(v1 != v2)
+        case Lt => B(v1 < v2)
+        case Le => B(v1 <= v2)
+        case Gt => B(v1 > v2)
+        case Ge => B(v1 >= v2)
+        case And => if toBoolean(v1) v2 else v1
+        case Or => if !toBoolean(v2) v1 else v2
+
+        case _ => println("simple binary fell through"); throw new UnsupportedOperationException
+      }
+
+      // Short circuiting binary operations
+      case Binary(op, v1, e2) if isValue(v1) => op match {
+        case And => if toBoolean(v1) e2 else v1
+        case Or => if toBoolean(v1) v1 else e2
+      }
       
-        // ****** Your cases here
-      
-      /* Inductive Cases: Search Rules */
+      /* Inductive Cases */
       case Print(e1) => Print(step(e1))
       
         // ****** Your cases here
