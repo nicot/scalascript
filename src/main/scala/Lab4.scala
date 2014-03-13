@@ -105,24 +105,52 @@ object Lab4 extends jsy.util.JsyApplication {
       case S(_) => TString
       case Var(x) => env(x)
       case ConstDecl(x, e1, e2) => typeInfer(env + (x -> typ(e1)), e2)
+
       case Unary(Neg, e1) => typ(e1) match {
         case TNumber => TNumber
         case tgot => err(tgot, e1)
+      }//end neg
+
+      case Unary(Not, e1) => typ(e1) match{
+        case TBool => TBool
+        case tgot  => err(tgot,e1)
+      }//end not
+
+      case Binary(Plus, e1, e2) => (typ(e1),typ(e2)) match{
+        case (TNumber,TNumber)  => TNumber
+        case (TString, TString) => TString
+        case (tgot,tgot1)       => err(tgot,e1)
+      }//end plus
+
+      case Binary(Minus|Times|Div, e1, e2) => (typ(e1),typ(e2)) match{
+        case (TNumber,TNumber) => TNumber
+        case (TNumber,tgot)    => err(tgot,e2)
+        case (tgot,TNumber)    => err(tgot,e1)
+      }//end minus times div
+
+      case Binary(Eq|Ne, e1, e2) => (typ(e1),typ(e2)) match{
+        case (TBool,TBool) => TBool
+        case (TBool, tgot) => TBool
+        case (tgot, TBool) => err(tgot, e2)
+      }//end Eq|Ne
+
+      case Binary(Lt|Le|Gt|Ge, e1, e2) => (typ(e1),typ(e2)) match{
+        case (TNumber,TNumber) => TBool
+        case (TString,TString) => TBool
+        case (TNumber,tgot)    => err(tgot,e2)
+        case (tgot,TNumber)    => err(tgot,e1)
       }
-      case Unary(Not, e1) =>
-        throw new UnsupportedOperationException
-      case Binary(Plus, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(Minus|Times|Div, e1, e2) => 
-        throw new UnsupportedOperationException
-      case Binary(Eq|Ne, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(Lt|Le|Gt|Ge, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(And|Or, e1, e2) =>
-        throw new UnsupportedOperationException
-      case Binary(Seq, e1, e2) =>
-        throw new UnsupportedOperationException
+
+      /*
+      case Binary(Seq, e1, e2) =>  (typ(e1),typ(e2)) match{
+        case (_,TNumber)   => TNumber
+        case (_,TBool)     => TBool
+        case (_,TString)   => TString
+        case (_,TUndefined)=> TUndefined
+        case (tgot,tgot1)  => err(tgot,e2)
+      }
+      */
+
       case If(e1, e2, e3) =>
         throw new UnsupportedOperationException
       case Function(p, params, tann, e1) => {
