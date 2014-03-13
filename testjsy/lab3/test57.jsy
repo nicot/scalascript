@@ -1,4 +1,0 @@
-const a = "4"
-jsy.print(a + 5.2)
-5.1 - a
-

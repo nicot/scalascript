@@ -1,10 +1,10 @@
 import sbt._
 import Keys._
 
-object Lab1Build extends Build {
-  lazy val root = Project(id = "lab3",
+object LabBuild extends Build {
+  lazy val root = Project(id = "lab4",
                           base = file("."))
 
-  lazy val grader = Project(id = "lab3-grader",
+  lazy val grader = Project(id = "lab4-grader",
                             base = file("grader")) dependsOn(root)
 }

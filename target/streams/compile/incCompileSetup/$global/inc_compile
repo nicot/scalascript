@@ -1,67 +1,104 @@
 format version: 1
 products:
-51 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$1.class
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$2.class
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$processFile$1.class
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$processFile$2.class
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$.class
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$And$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$B$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$B.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Binary$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Binary.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Bop.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Call$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Call.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$ConstDecl$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$ConstDecl.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Div$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$DynamicTypeError$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$DynamicTypeError.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Eq$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Expr.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Function$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Function.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Ge$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Gt$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$If$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$If.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Le$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Lt$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Minus$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$N$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$N.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Ne$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Neg$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Not$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Or$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Plus$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Print$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Print.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$S$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$S.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Seq$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Times$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Unary$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Unary.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Undefined$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Uop.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Var$.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Var.class
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast.class
+87 items
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$2.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$compressFold$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$hasFunctionTyp$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$processFile$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$processFile$2.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$step$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$sum$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$treeFromList$1.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Empty$.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Node$.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Node.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Tree.class
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$1.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$2.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$3.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$4.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$5.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$6.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$1.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$2.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$3.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$isValue$1.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$And$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$B$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$B.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Binary$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Binary.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Bop.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Call$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Call.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$ConstDecl$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$ConstDecl.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Div$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$DynamicTypeError$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$DynamicTypeError.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Eq$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Expr.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Function$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Function.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Ge$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$GetField$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$GetField.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Gt$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$If$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$If.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Le$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Lt$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Minus$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$N$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$N.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Ne$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Neg$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Not$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Obj$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Obj.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Or$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Plus$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Print$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Print.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$S$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$S.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Seq$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StaticTypeError$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StaticTypeError.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StuckError$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StuckError.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TBool$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TFunction$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TFunction.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TNumber$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TObj$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TObj.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TString$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TUndefined$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Times$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Typ.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Unary$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Unary.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Undefined$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Uop.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Var$.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Var.class
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast.class
 binary dependencies:
-5 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/lib/liblab3.jar
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar
+6 items
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/lib/liblab4.jar
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /home/nico/documents/scala/lab4/lib/liblab4.jar
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar
 source dependencies:
 1 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> /home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> /home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala
 external dependencies:
 0 items
 public inherited source dependencies:
@@ -69,178 +106,216 @@ public inherited source dependencies:
 public inherited external dependencies:
 0 items
 class names:
-51 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3$
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3$$anonfun$1
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3$$anonfun$2
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3$$anonfun$processFile$1
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> Lab3$$anonfun$processFile$2
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$And$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$B
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$B$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Binary
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Binary$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Bop
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Call
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Call$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$ConstDecl
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$ConstDecl$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Div$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$DynamicTypeError
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$DynamicTypeError$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Eq$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Expr
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Function
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Function$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Ge$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Gt$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$If
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$If$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Le$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Lt$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Minus$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$N
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$N$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Ne$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Neg$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Not$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Or$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Plus$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Print
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Print$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$S
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$S$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Seq$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Times$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Unary
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Unary$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Undefined$
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Uop
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Var
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> jsy.lab3.ast$Var$
+87 items
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$2
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$compressFold$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$hasFunctionTyp$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$processFile$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$processFile$2
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$step$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$sum$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$$anonfun$treeFromList$1
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$Empty$
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$Node
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$Node$
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> Lab4$Tree
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$1
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$2
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$3
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$4
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$5
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$6
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$freeVars$1
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$freeVars$2
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$freeVars$3
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$$anonfun$isValue$1
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$And$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$B
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$B$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Binary
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Binary$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Bop
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Call
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Call$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$ConstDecl
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$ConstDecl$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Div$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$DynamicTypeError
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$DynamicTypeError$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Eq$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Expr
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Function
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Function$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Ge$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$GetField
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$GetField$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Gt$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$If
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$If$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Le$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Lt$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Minus$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$N
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$N$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Ne$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Neg$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Not$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Obj
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Obj$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Or$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Plus$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Print
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Print$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$S
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$S$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Seq$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$StaticTypeError
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$StaticTypeError$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$StuckError
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$StuckError$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TBool$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TFunction
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TFunction$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TNumber$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TObj
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TObj$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TString$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$TUndefined$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Times$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Typ
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Unary
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Unary$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Undefined$
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Uop
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Var
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> jsy.lab4.ast$Var$
 product stamps:
-51 items
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$1.class -> lastModified(1393871102000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$2.class -> lastModified(1393871102000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$processFile$1.class -> lastModified(1393871102000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$$anonfun$processFile$2.class -> lastModified(1393871102000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3$.class -> lastModified(1393871102000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/Lab3.class -> lastModified(1393871101000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$And$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$B$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$B.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Binary$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Binary.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Bop.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Call$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Call.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$ConstDecl$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$ConstDecl.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Div$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$DynamicTypeError$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$DynamicTypeError.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Eq$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Expr.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Function$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Function.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Ge$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Gt$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$If$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$If.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Le$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Lt$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Minus$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$N$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$N.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Ne$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Neg$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Not$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Or$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Plus$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Print$.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Print.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$S$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$S.class -> lastModified(1393458153000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Seq$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Times$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Unary$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Unary.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Undefined$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Uop.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Var$.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast$Var.class -> lastModified(1393458154000)
-/home/nico/documents/scala/lab3/target/scala-2.10/classes/jsy/lab3/ast.class -> lastModified(1393458153000)
+87 items
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$2.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$compressFold$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$hasFunctionTyp$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$processFile$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$processFile$2.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$step$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$sum$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$$anonfun$treeFromList$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Empty$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Node$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Node.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4$Tree.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/Lab4.class -> lastModified(1394732494000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$2.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$3.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$4.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$5.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$6.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$2.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$freeVars$3.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$$anonfun$isValue$1.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$And$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$B$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$B.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Binary$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Binary.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Bop.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Call$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Call.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$ConstDecl$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$ConstDecl.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Div$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$DynamicTypeError$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$DynamicTypeError.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Eq$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Expr.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Function$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Function.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Ge$.class -> lastModified(1394732495000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$GetField$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$GetField.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Gt$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$If$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$If.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Le$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Lt$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Minus$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$N$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$N.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Ne$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Neg$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Not$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Obj$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Obj.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Or$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Plus$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Print$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Print.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$S$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$S.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Seq$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StaticTypeError$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StaticTypeError.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StuckError$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$StuckError.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TBool$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TFunction$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TFunction.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TNumber$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TObj$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TObj.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TString$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$TUndefined$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Times$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Typ.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Unary$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Unary.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Undefined$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Uop.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Var$.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast$Var.class -> lastModified(1394732496000)
+/home/nico/documents/scala/lab4/target/scala-2.10/classes/jsy/lab4/ast.class -> lastModified(1394732495000)
 source stamps:
 2 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> hash(797a6e675859e43f8e28a8e765dda9466008d735)
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> hash(95187b1160b45f1203bab0c4ab571a5a5690dac9)
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> hash(9cd3be07304406890ec6f4048ce3c8754e669539)
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> hash(4b893a43bea91ad29a3bb119e3f5fb58993e8283)
 binary stamps:
 3 items
 /home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar -> lastModified(1380275091000)
-/home/nico/documents/scala/lab3/lib/liblab3.jar -> lastModified(1392486480000)
+/home/nico/documents/scala/lab4/lib/liblab4.jar -> lastModified(1393915142000)
 /usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar -> lastModified(1391004844000)
 class names:
 3 items
-/home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar -> scala.MatchError
-/home/nico/documents/scala/lab3/lib/liblab3.jar -> jsy.util.JsyApplication
-/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar -> java.lang.Object
+/home/nico/.sbt/boot/scala-2.10.3/lib/scala-library.jar -> scala.Function1
+/home/nico/documents/scala/lab4/lib/liblab4.jar -> jsy.lab4.Parser$
+/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar -> java.io.Serializable
 internal apis:
 2 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSIdu0j8FrMwCAAVJAAdhcGlIYXNoWgAIaGFzTWFjcm9MAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDMF0u1AHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AA54cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAdAAETGFiM3VyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cAFzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwcHNxAH4AJwFzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4ADkwACWluaGVyaXRlZHEAfgAOTAAHcGFyZW50c3EAfgAOeHEAfgAuc3EAfgAnAXVxAH4ACQAAAABwc3EAfgAnAXVxAH4ACQAAAAFzcgANeHNidGkuYXBpLkRlZlK+n+J8tDZpAgACTAAKcmV0dXJuVHlwZXQAEEx4c2J0aS9hcGkvVHlwZTtbAA92YWx1ZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9QYXJhbWV0ZXJMaXN0O3hxAH4AD3EAfgAZdXEAfgAaAAAAAHNxAH4AHAB0AARtYWludXEAfgAfAAAAAHNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4AFUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AC10AARVbml0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgAtc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAACc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4AFXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AAVzY2FsYXNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgBMdXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+ABVMAAN0cGVxAH4AOHhwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AInQABVBsYWludAAEYXJnc3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4AQFsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4ALXNxAH4AP3QABUFycmF5cQB+AEV1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4AP3QABlN0cmluZ3NxAH4AQ3NxAH4ARnVxAH4ASQAAAANzcQB+AEt0AARqYXZhc3EAfgBLdAAEbGFuZ3EAfgBQcHNxAH4AJwF1cQB+AGQAAAADc3EAfgA/dAAOSnN5QXBwbGljYXRpb25zcQB+AENzcQB+AEZ1cQB+AEkAAAADc3EAfgBLdAADanN5c3EAfgBLdAAEdXRpbHEAfgBQc3EAfgA/dAAGT2JqZWN0cQB+AGhzcQB+AD90AANBbnlxAH4ARXBwdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAUSJMIMBdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgAVTAAPc291cmNlRGlyZWN0b3J5cQB+ABV4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFHl6bmdYWeQ/jiio52XdqUZgCNc1
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSIdu0j8FrMwCAAVJAAdhcGlIYXNoWgAIaGFzTWFjcm9MAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCOUyq0AHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AA54cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAdAAManN5LmxhYjMuYXN0dXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAHBzcgAgeHNidGkuU2FmZUxhenkkJGFub25mdW4kc3RyaWN0JDEAAAAAAAAAAAIAAUwAB3ZhbHVlJDFxAH4AKHhwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AJwBwc3EAfgAsc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AA5MAAlpbmhlcml0ZWRxAH4ADkwAB3BhcmVudHNxAH4ADnhxAH4AMHNxAH4AJwBwc3EAfgAsdXEAfgAJAAAAAHNxAH4AJwBwc3EAfgAsdXEAfgAJAAAAAHNxAH4AJwBwc3EAfgAsdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+ABVMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgAvdAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgAvc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4AFXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgBMdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgBNc3EAfgBAdAADQW55c3EAfgBEc3EAfgBHdXEAfgBKAAAAAnNxAH4ATHQABXNjYWxhcQB+AFN1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAnNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgAVeHB0AANqc3lzcQB+AF10AAhqc3kubGFiM3NyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHCTbrZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+ABVMAA9zb3VyY2VEaXJlY3RvcnlxAH4AFXhwdAA5L2hvbWUvbmljby9kb2N1bWVudHMvc2NhbGEvbGFiMy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUlRh7EWC0XxIDurDEq1caWlaQ2sk=
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSIdu0j8FrMwCAAVJAAdhcGlIYXNoWgAIaGFzTWFjcm9MAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHDzB096AHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AA54cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAdAAETGFiNHVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgATeHNidGkuU2FmZUxhenkkSW1wbFACLpOXl0A/AgADWgAIYml0bWFwJDBMAAJfdHQAEkxqYXZhL2xhbmcvT2JqZWN0O0wABGV2YWx0ABFMc2NhbGEvRnVuY3Rpb24wO3hyABZ4c2J0aS5hcGkuQWJzdHJhY3RMYXp503e1AV+756ACAAB4cABwc3IAIHhzYnRpLlNhZmVMYXp5JCRhbm9uZnVuJHN0cmljdCQxAAAAAAAAAAACAAFMAAd2YWx1ZSQxcQB+ACh4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+ACcAcHNxAH4ALHNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgAOTAAJaW5oZXJpdGVkcQB+AA5MAAdwYXJlbnRzcQB+AA54cQB+ADBzcQB+ACcAcHNxAH4ALHVxAH4ACQAAAABzcQB+ACcAcHNxAH4ALHVxAH4ACQAAAAFzcgANeHNidGkuYXBpLkRlZlK+n+J8tDZpAgACTAAKcmV0dXJuVHlwZXQAEEx4c2J0aS9hcGkvVHlwZTtbAA92YWx1ZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9QYXJhbWV0ZXJMaXN0O3hxAH4AD3EAfgAZdXEAfgAaAAAAAHNxAH4AHAB0AARtYWludXEAfgAfAAAAAHNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4AFUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AC90AARVbml0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgAvc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAACc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4AFXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AAVzY2FsYXNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgBRdXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+ABVMAAN0cGVxAH4APXhwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AInQABVBsYWludAAEYXJnc3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4ARVsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4AL3NxAH4ARHQABUFycmF5cQB+AEp1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4ARHQABlN0cmluZ3NxAH4ASHNxAH4AS3VxAH4ATgAAAANzcQB+AFB0AARqYXZhc3EAfgBQdAAEbGFuZ3EAfgBVc3EAfgAnAHBzcQB+ACx1cQB+AGkAAAADc3EAfgBEdAAOSnN5QXBwbGljYXRpb25zcQB+AEhzcQB+AEt1cQB+AE4AAAADc3EAfgBQdAADanN5c3EAfgBQdAAEdXRpbHEAfgBVc3EAfgBEdAAGT2JqZWN0cQB+AG1zcQB+AER0AANBbnlxAH4ASnVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAAAc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFEvIhFPXVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4AFUwAD3NvdXJjZURpcmVjdG9yeXEAfgAVeHB0ADkvaG9tZS9uaWNvL2RvY3VtZW50cy9zY2FsYS9sYWI0L3RhcmdldC9zY2FsYS0yLjEwL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABSc074HMEQGiQ7G9ASM48h1TmaVOQ==
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSIdu0j8FrMwCAAVJAAdhcGlIYXNoWgAIaGFzTWFjcm9MAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBbLAH4AHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AA54cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnPHERMhaZzcJAIAAUIABWZsYWdzeHAAdAAManN5LmxhYjQuYXN0dXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyABN4c2J0aS5TYWZlTGF6eSRJbXBsUAIuk5eXQD8CAANaAAhiaXRtYXAkMEwAAl90dAASTGphdmEvbGFuZy9PYmplY3Q7TAAEZXZhbHQAEUxzY2FsYS9GdW5jdGlvbjA7eHIAFnhzYnRpLmFwaS5BYnN0cmFjdExhennTd7UBX7vnoAIAAHhwAHBzcgAgeHNidGkuU2FmZUxhenkkJGFub25mdW4kc3RyaWN0JDEAAAAAAAAAAAIAAUwAB3ZhbHVlJDFxAH4AKHhwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AJwBwc3EAfgAsc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AA5MAAlpbmhlcml0ZWRxAH4ADkwAB3BhcmVudHNxAH4ADnhxAH4AMHNxAH4AJwBwc3EAfgAsdXEAfgAJAAAAAHNxAH4AJwBwc3EAfgAsdXEAfgAJAAAAAHNxAH4AJwBwc3EAfgAsdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+ABVMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgAvdAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgAvc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4AFXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgBMdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgBNc3EAfgBAdAADQW55c3EAfgBEc3EAfgBHdXEAfgBKAAAAAnNxAH4ATHQABXNjYWxhcQB+AFN1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAnNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgAVeHB0AAhqc3kubGFiNHNxAH4AXXQAA2pzeXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRLyIRT11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+ABVMAA9zb3VyY2VEaXJlY3RvcnlxAH4AFXhwdAA5L2hvbWUvbmljby9kb2N1bWVudHMvc2NhbGEvbGFiNC90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUS4k6Q76pGtKaO7EZ4/X7WJk+goM=
 external apis:
 0 items
 source infos:
 2 items
-/home/nico/documents/scala/lab3/src/main/scala/Lab3.scala -> 
+/home/nico/documents/scala/lab4/src/main/scala/Lab4.scala -> 
 AAAAAAAAAAA=
-/home/nico/documents/scala/lab3/src/main/scala/jsy/lab3/ast.scala -> 
+/home/nico/documents/scala/lab4/src/main/scala/jsy/lab4/ast.scala -> 
 AAAAAAAAAAA=
 compilations:
-18 items
+1 items
 000 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIku5qd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-001 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHGEweh1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-002 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIkenMl1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-003 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHDlgy11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-004 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHCiLed1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-005 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHEHr1x1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-006 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHEW5jd1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-007 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIj5cw11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-008 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIkmLNB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-009 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIkofsN1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-010 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIkHSpx1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-011 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHFIax91cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-012 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHCTbrZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-013 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHGTxfN1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-014 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHD+jvl1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-015 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRHD6FhJ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-016 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIjue9B1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
-017 -> 
-rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRIkwgwF1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjMvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
+rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABRLyIRT11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAOS9ob21lL25pY28vZG9jdW1lbnRzL3NjYWxhL2xhYjQvdGFyZ2V0L3NjYWxhLTIuMTAvY2xhc3Nlc3QAAS8=
 compile setup:
 1 items
 1 -> 
-AAA5L2hvbWUvbmljby9kb2N1bWVudHMvc2NhbGEvbGFiMy90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzAAAAAAAAAAAABjIuMTAuMwAAAAA=
+AAA5L2hvbWUvbmljby9kb2N1bWVudHMvc2NhbGEvbGFiNC90YXJnZXQvc2NhbGEtMi4xMC9jbGFzc2VzAAAAAAAAAAAABjIuMTAuMwAAAAA=

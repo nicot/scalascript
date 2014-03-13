@@ -1,0 +1,57 @@
+[0m[[0minfo[0m] [0m[32mLab4Spec:[0m[0m
+[0m[[0minfo[0m] [0m[32mcompressRec/compressFold[0m[0m
+[0m[[0minfo[0m] [0m[31m- should compress List(1, 2, 2, 3, 3, 3) *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$.compressRec(Lab4.scala:41)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$1.apply$mcV$sp(Lab4Spec.scala:10)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$1.apply(Lab4Spec.scala:7)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$1.apply(Lab4Spec.scala:7)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mmapFirst[0m[0m
+[0m[[0minfo[0m] [0m[31m- should map the first element where f returns Some *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$.mapFirst(Lab4.scala:50)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$2.apply$mcV$sp(Lab4Spec.scala:18)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$2.apply(Lab4Spec.scala:14)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$2.apply(Lab4Spec.scala:14)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mfoldLeft[0m[0m
+[0m[[0minfo[0m] [0m[31m- should enable implementing treeFromList and sum *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$Tree.loop$1(Lab4.scala:64)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$Tree.foldLeft(Lab4.scala:66)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$.sum(Lab4.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$3.apply$mcV$sp(Lab4Spec.scala:24)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$3.apply(Lab4Spec.scala:23)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$3.apply(Lab4Spec.scala:23)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32mstrictlyOrdered[0m[0m
+[0m[[0minfo[0m] [0m[31m- should check strict ordering of a binary search tree *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.lang.UnsupportedOperationException:[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4$.strictlyOrdered(Lab4.scala:89)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$4.apply$mcV$sp(Lab4Spec.scala:29)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$4.apply(Lab4Spec.scala:28)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at Lab4Spec$$anonfun$4.apply(Lab4Spec.scala:28)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
