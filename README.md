@@ -1,3 +1,6 @@
+scalascript
+===========
+
  Because it's all Java in the end right?
  This is a little class project to implement a Javascript interpreter in Scala.
  Feel free to take a look at my code, but make sure you understand it before using it.
