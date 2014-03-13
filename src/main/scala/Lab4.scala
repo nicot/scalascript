@@ -22,13 +22,16 @@ object Lab4 extends jsy.util.JsyApplication {
   def compressFold[A](l: List[A]): List[A] = l.foldRight(Nil: List[A]){
     (h, acc) => (h, acc) match { 
       case (h, Nil) => List(h)
-      case (h, acc) => println(h,acc); if (acc(0) ==h) acc else h::acc
+      case (h, acc) => println(h,acc); if (acc(0) == h) acc else h::acc
     }
   }
   
   def mapFirst[A](f: A => Option[A])(l: List[A]): List[A] = l match {
-    case Nil => throw new UnsupportedOperationException
-    case h :: t => throw new UnsupportedOperationException
+    case Nil => Nil
+    case h :: t => f(h) match {
+      case None => h::mapFirst(f)(t)
+      case Some(x) => x::t
+    }
   }
   
   /* Search Trees */
