@@ -128,31 +128,34 @@ object Lab4 extends jsy.util.JsyApplication {
         case (tgot,TNumber)    => err(tgot,e1)
       }//end minus times div
 
-      case Binary(Eq|Ne, e1, e2) => (typ(e1),typ(e2)) match{
-        case (TBool,TBool) => TBool
-        case (TBool, tgot) => TBool
-        case (tgot, TBool) => err(tgot, e2)
-      }//end Eq|Ne
+      case Binary(Eq|Ne, e1, e2) => typ(e1) match{
+
+        case tgot if hasFunctionTyp(tgot) => err(tgot, e1)
+        case _ => typ(e2) match {
+          case tgot1 if hasFunctionTyp(tgot1) => err(tgot1, e2)
+          case _ => if (typ(e1) == typ(e2)) TBool else err(typ(e2), e2)
+        }
+
+      }//TODO FIX
 
       case Binary(Lt|Le|Gt|Ge, e1, e2) => (typ(e1),typ(e2)) match{
         case (TNumber,TNumber) => TBool
         case (TString,TString) => TBool
-        case (TNumber,tgot)    => err(tgot,e2)
-        case (tgot,TNumber)    => err(tgot,e1)
+        case (tgot,tgot1)      => err(tgot,e1)
+      }//end L and G
+
+      case Binary(And|Or,e1,e2) => (typ(e1),typ(e2)) match{
+        case(TBool,TBool) => TBool
+        case(one,two) => err(one,e1)
       }
 
-      /*
-      case Binary(Seq, e1, e2) =>  (typ(e1),typ(e2)) match{
-        case (_,TNumber)   => TNumber
-        case (_,TBool)     => TBool
-        case (_,TString)   => TString
-        case (_,TUndefined)=> TUndefined
-        case (tgot,tgot1)  => err(tgot,e2)
-      }
-      */
+      case Binary(Seq, e1, e2) => typ(e1); typ(e2)
 
-      case If(e1, e2, e3) =>
-        throw new UnsupportedOperationException
+      case If(e1, e2, e3) => typ(e1) match{
+        case TBool => typ(e3)
+        case other => err(other,e1)
+      }
+
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
         // the function is potentially recursive.
@@ -164,26 +167,53 @@ object Lab4 extends jsy.util.JsyApplication {
           case _ => err(TUndefined, e1)
         }
         // Bind to env2 an environment that extends env1 with bindings for params.
-        val env2 = throw new UnsupportedOperationException
+        val env2 = params.foldLeft(env1){
+          case (acc,(x,t)) => acc + (x->t)
+        }//end
+
+
         // Match on whether the return type is specified.
         tann match {
-          case None => throw new UnsupportedOperationException
-          case Some(tret) => throw new UnsupportedOperationException
-        }
-      }
+          case None => {
+            val t  = typeInfer(env2,e1)
+            val tp = TFunction(params,t)
+            tp
+          }//end none
+          case Some(tret) => {
+            val t  = typeInfer(env2,e1)
+            val tp = TFunction(params,t)
+            if(tp != TFunction(params,tret)) err(t,e1) else TFunction(params,tp)
+          }//end some
+
+        }//end tann match
+
+      }//end Function
+
       case Call(e1, args) => typ(e1) match {
+
         case TFunction(params, tret) if (params.length == args.length) => {
           (params, args).zipped.foreach {
-            throw new UnsupportedOperationException
+
+            case (ty,para) => if(ty != typ(para)) err(typ(para),para) else typ(para)
+
           };
           tret
         }
         case tgot => err(tgot, e1)
       }
-      case Obj(fields) =>
-        throw new UnsupportedOperationException
-      case GetField(e1, f) =>
-        throw new UnsupportedOperationException
+      case Obj(fields) => TObj( fields.map{ case(x,y) => (x,typ(y))} )
+
+      case GetField(e1, f) => typ(e1) match{
+
+        case TObj(field) => field.get(f) match{
+          case None => err(typ(e1),e1)
+          case Some(x) => x
+        }
+
+        case _ => err(typ(e1),e1)
+
+      }
+
     }
   }
   
