@@ -79,7 +79,6 @@ object Lab4 extends jsy.util.JsyApplication {
     }
     b
   }
-  
 
   /* Type Inference */
   
@@ -147,18 +146,19 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(And|Or,e1,e2) => (typ(e1),typ(e2)) match{
         case(TBool,TBool) => TBool
         case(one,two) => err(one,e1)
-      }
+      }//end and or
 
       case Binary(Seq, e1, e2) => typ(e1); typ(e2)
+         //must typ e1 to check for possible errors in e1
 
       case If(e1, e2, e3) => typ(e1) match{
         case TBool => typ(e3)
         case other => err(other,e1)
-      }
+      }//end if
 
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
-        // the function is potentially recursive.
+        // the function is potentially recusive.
         val env1 = (p, tann) match {
           case (Some(f), Some(tret)) =>
             val tprime = TFunction(params, tret)
@@ -166,7 +166,8 @@ object Lab4 extends jsy.util.JsyApplication {
           case (None, _) => env
           case _ => err(TUndefined, e1)
         }
-        // Bind to env2 an environment that extends env1 with bindings for params.
+
+        //create a new env by going through params and
         val env2 = params.foldLeft(env1){
           case (acc,(x,t)) => acc + (x->t)
         }//end
@@ -216,8 +217,7 @@ object Lab4 extends jsy.util.JsyApplication {
 
     }
   }
-  
-  
+
   /* Small-Step Interpreter */
   
   def inequalityVal(bop: Bop, v1: Expr, v2: Expr): Boolean = {
@@ -311,8 +311,6 @@ object Lab4 extends jsy.util.JsyApplication {
       case _ => throw StuckError(e)
     }
   }
-  
-  
   /* External Interfaces */
   
   this.debug = true // comment this out or set to false if you don't want print debugging information
