@@ -259,7 +259,7 @@ object Lab4 extends jsy.util.JsyApplication {
 
       }
       case Call(e1, args) => Call(subst(e1),args.map(subst))
-      case Obj(fields) => Obj(fields.mapValues((exp: Expr) =>subst(exp)))
+      case Obj(fields) => Obj(fields.mapValues(v => subst(v)))
       case GetField(e1, f) => { if (x != f) GetField(subst(e1),f) else e
 
       }
@@ -301,8 +301,8 @@ object Lab4 extends jsy.util.JsyApplication {
             }
 
             p match {
-              case None => println("Doing Something"); e1p
-              case Some(x1) =>println("Doing something else"); step(e1p)
+              case None => e1p
+              case Some(x1) => substitute(e1p,v1,x1)
             }
           }
 
@@ -314,6 +314,7 @@ object Lab4 extends jsy.util.JsyApplication {
         Call(v1, args1)
       }
       /*** Fill-in more cases here. ***/
+
 
 
       case Obj(field) => {
@@ -335,6 +336,7 @@ object Lab4 extends jsy.util.JsyApplication {
         case Some(e) => e
         case None => throw new StuckError(e)
       }//end getField
+
       case GetField(e1, f) => GetField(step(e1), f)
         
       /* Inductive Cases: Search Rules */
