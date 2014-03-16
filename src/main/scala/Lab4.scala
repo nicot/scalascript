@@ -22,7 +22,7 @@ object Lab4 extends jsy.util.JsyApplication {
   def compressFold[A](l: List[A]): List[A] = l.foldRight(Nil: List[A]){
     (h, acc) => (h, acc) match { 
       case (h, Nil) => List(h)
-      case (h, acc) => println(h,acc); if (acc(0) == h) acc else h::acc
+      case (h, acc) => if (acc(0) == h) acc else h::acc
     }
   }
   
