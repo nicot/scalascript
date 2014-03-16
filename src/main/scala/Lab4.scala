@@ -135,7 +135,7 @@ object Lab4 extends jsy.util.JsyApplication {
           case _ => if (typ(e1) == typ(e2)) TBool else err(typ(e2), e2)
         }
 
-      }//TODO FIX
+      }//
 
       case Binary(Lt|Le|Gt|Ge, e1, e2) => (typ(e1),typ(e2)) match{
         case (TNumber,TNumber) => TBool
@@ -151,10 +151,10 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(Seq, e1, e2) => typ(e1); typ(e2)
          //must typ e1 to check for possible errors in e1
 
-      case If(e1, e2, e3) => typ(e1) match{
-        case TBool => typ(e3)
-        case other => err(other,e1)
-      }//end if
+      case If(e1,e2,e3) => (typ(e1),typ(e2),typ(e3)) match{
+        case(TBool,x,y) =>{ if(x==y) x else err(y,e2) }
+        case (a,_,_)    => err(a,e1)
+      }
 
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
@@ -172,21 +172,16 @@ object Lab4 extends jsy.util.JsyApplication {
           case (acc,(x,t)) => acc + (x->t)
         }//end
 
-
         // Match on whether the return type is specified.
         tann match {
-          case None => {
-            val t  = typeInfer(env2,e1)
-            val tp = TFunction(params,t)
-            tp
-          }//end none
-          case Some(tret) => {
-            val t  = typeInfer(env2,e1)
-            val tp = TFunction(params,t)
-            if(tp != TFunction(params,tret)) err(t,e1) else TFunction(params,tp)
-          }//end some
-
-        }//end tann match
+          case None => TFunction(params, typeInfer(env2, e1))
+          case Some(rt) => {
+            if (rt == typeInfer(env2, e1))
+              TFunction(params, rt)
+            else
+              TFunction(params, err(rt, e1))
+          }
+        }
 
       }//end Function
 
@@ -195,7 +190,7 @@ object Lab4 extends jsy.util.JsyApplication {
         case TFunction(params, tret) if (params.length == args.length) => {
           (params, args).zipped.foreach {
 
-            case (ty,para) => if(ty != typ(para)) err(typ(para),para) else typ(para)
+            case (ty,para) => if(ty._2 != typ(para)) err(typ(para),para) else typ(para)
 
           };
           tret
@@ -253,14 +248,21 @@ object Lab4 extends jsy.util.JsyApplication {
       case If(e1, e2, e3) => If(subst(e1), subst(e2), subst(e3))
       case Var(y) => if (x == y) v else e
       case ConstDecl(y, e1, e2) => ConstDecl(y, subst(e1), if (x == y) e2 else subst(e2))
-      case Function(p, params, tann, e1) =>
-        throw new UnsupportedOperationException
-      case Call(e1, args) =>
-        throw new UnsupportedOperationException
-      case Obj(fields) =>
-        throw new UnsupportedOperationException
-      case GetField(e1, f) =>
-        throw new UnsupportedOperationException
+      case fun @ Function(p, params, tann, e1) => {
+
+        if(params.exists((t1:(String,Typ)) => t1._1 ==x) || Some(x) == p){
+          fun
+        }
+        else {
+          Function(p, params, tann, subst(e1))
+        }
+
+      }
+      case Call(e1, args) => Call(subst(e1),args.map(subst))
+      case Obj(fields) => Obj(fields.mapValues((exp: Expr) =>subst(exp)))
+      case GetField(e1, f) => { if (x != f) GetField(subst(e1),f) else e
+
+      }
     }
   }
   
@@ -283,26 +285,67 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
       case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
       case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
+
+      case Binary(Minus, N(n1), N(n2)) => N(n1 - n2)
+      case Binary(Times, N(n1), N(n2)) => N(n1 * n2)
+      case Binary(Div, N(n1), N(n2)) => N(n1 / n2)
+
+
       case Call(v1, args) if isValue(v1) && (args forall isValue) =>
         v1 match {
           case Function(p, params, _, e1) => {
             val e1p = (params, args).zipped.foldRight(e1){
-              throw new UnsupportedOperationException
+              (x,expression) => x match{
+                case ((string,ty),value) => substitute(expression,value,string)
+              }
             }
+
             p match {
-              case None => throw new UnsupportedOperationException
-              case Some(x1) => throw new UnsupportedOperationException
+              case None => println("Doing Something"); e1p
+              case Some(x1) =>println("Doing something else"); step(e1p)
             }
           }
+
           case _ => throw new StuckError(e)
         }
+
+      case Call(v1 @ Function(_, _, _, _), args) => {
+        val args1 = mapFirst { (a: Expr) => if (!isValue(a)) Some(step(a)) else None }(args)
+        Call(v1, args1)
+      }
       /*** Fill-in more cases here. ***/
+
+
+      case Obj(field) => {
+
+        val myList = field.toList
+
+        def helper(arg:(String,Expr)):Option[(String,Expr)] = {
+          arg match{
+            case (s, e1) => if (!isValue(e1)) Some(s, step(e1)) else None
+          }
+        }
+
+        Obj(mapFirst(helper)(myList).toMap)
+
+      }//end Obj
+
+
+      case GetField(Obj(fields), f) => fields.get(f) match {
+        case Some(e) => e
+        case None => throw new StuckError(e)
+      }//end getField
+      case GetField(e1, f) => GetField(step(e1), f)
         
       /* Inductive Cases: Search Rules */
+
+      case Call(e1, args) => Call(step(e1), args)
       case Print(e1) => Print(step(e1))
       case Unary(uop, e1) => Unary(uop, step(e1))
       case Binary(bop, v1, e2) if isValue(v1) => Binary(bop, v1, step(e2))
       case Binary(bop, e1, e2) => Binary(bop, step(e1), e2)
+      case If(B(true), e2, e3) => e2
+      case If(B(false), e2, e3) => e3
       case If(e1, e2, e3) => If(step(e1), e2, e3)
       case ConstDecl(x, e1, e2) => ConstDecl(x, step(e1), e2)
       /*** Fill-in more cases here. ***/
