@@ -7,7 +7,7 @@ object Lab4 extends jsy.util.JsyApplication {
    * Dominic Tonozzi
    * 
    * Partner: Matthias Sainz
-   * Collaborators: Jacob Resman
+   * Collaborators: Jacob Resman and Kelsea Anderson
    */
 
   /* Collections and Higher-Order Functions */
@@ -135,7 +135,7 @@ object Lab4 extends jsy.util.JsyApplication {
           case _ => if (typ(e1) == typ(e2)) TBool else err(typ(e2), e2)
         }
 
-      }//
+      }//end Eq Ne
 
       case Binary(Lt|Le|Gt|Ge, e1, e2) => (typ(e1),typ(e2)) match{
         case (TNumber,TNumber) => TBool
@@ -154,7 +154,7 @@ object Lab4 extends jsy.util.JsyApplication {
       case If(e1,e2,e3) => (typ(e1),typ(e2),typ(e3)) match{
         case(TBool,x,y) =>{ if(x==y) x else err(y,e2) }
         case (a,_,_)    => err(a,e1)
-      }
+      }//end if
 
       case Function(p, params, tann, e1) => {
         // Bind to env1 an environment that extends env with an appropriate binding if
@@ -168,20 +168,21 @@ object Lab4 extends jsy.util.JsyApplication {
         }
 
         //create a new env by going through params and
-        val env2 = params.foldLeft(env1){
-          case (acc,(x,t)) => acc + (x->t)
-        }//end
+        val env2 = params.foldLeft(env1){ case (acc,(x,t)) => acc + (x->t) }
 
         // Match on whether the return type is specified.
         tann match {
           case None => TFunction(params, typeInfer(env2, e1))
-          case Some(rt) => {
-            if (rt == typeInfer(env2, e1))
-              TFunction(params, rt)
+          case Some(returnType) => {
+
+            if (returnType == typeInfer(env2, e1))
+              TFunction(params, returnType)
             else
-              TFunction(params, err(rt, e1))
-          }
-        }
+              TFunction(params, err(returnType, e1))
+
+          }//end some
+
+        }//end tann match
 
       }//end Function
 
@@ -195,8 +196,11 @@ object Lab4 extends jsy.util.JsyApplication {
           };
           tret
         }
+
         case tgot => err(tgot, e1)
-      }
+
+      }//end call
+
       case Obj(fields) => TObj( fields.map{ case(x,y) => (x,typ(y))} )
 
       case GetField(e1, f) => typ(e1) match{
@@ -204,14 +208,15 @@ object Lab4 extends jsy.util.JsyApplication {
         case TObj(field) => field.get(f) match{
           case None => err(typ(e1),e1)
           case Some(x) => x
-        }
+        }//end TObj
 
         case _ => err(typ(e1),e1)
 
-      }
+      }//end GetField
 
-    }
-  }
+    }//end e match
+
+  }//end typ infer
 
   /* Small-Step Interpreter */
   
@@ -236,11 +241,13 @@ object Lab4 extends jsy.util.JsyApplication {
   }
   
   def substitute(e: Expr, v: Expr, x: String): Expr = {
+
     require(isValue(v))
     
     def subst(e: Expr): Expr = substitute(e, v, x)
     
     e match {
+
       case N(_) | B(_) | Undefined | S(_) => e
       case Print(e1) => Print(subst(e1))
       case Unary(uop, e1) => Unary(uop, subst(e1))
@@ -250,23 +257,24 @@ object Lab4 extends jsy.util.JsyApplication {
       case ConstDecl(y, e1, e2) => ConstDecl(y, subst(e1), if (x == y) e2 else subst(e2))
       case fun @ Function(p, params, tann, e1) => {
 
-        if(params.exists((t1:(String,Typ)) => t1._1 ==x) || Some(x) == p){
+        if(params.exists((t1:(String,Typ)) => t1._1 == x) || Some(x) == p){
           fun
         }
         else {
           Function(p, params, tann, subst(e1))
         }
 
-      }
+      }//end fun
       case Call(e1, args) => Call(subst(e1),args.map(subst))
       case Obj(fields) => Obj(fields.mapValues(v => subst(v)))
-      case GetField(e1, f) => { if (x != f) GetField(subst(e1),f) else e
+      case GetField(e1, f) => { if (x != f) GetField(subst(e1),f) else e }
 
-      }
-    }
-  }
+    }//end e match
+
+  }//end substitute
   
   def step(e: Expr): Expr = {
+
     require(!isValue(e))
     
     def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))
@@ -285,37 +293,38 @@ object Lab4 extends jsy.util.JsyApplication {
       case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
       case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
       case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
-
       case Binary(Minus, N(n1), N(n2)) => N(n1 - n2)
       case Binary(Times, N(n1), N(n2)) => N(n1 * n2)
       case Binary(Div, N(n1), N(n2)) => N(n1 / n2)
 
 
-      case Call(v1, args) if isValue(v1) && (args forall isValue) =>
+      case Call(v1, args) if isValue(v1) && (args forall isValue) =>{
+
         v1 match {
           case Function(p, params, _, e1) => {
             val e1p = (params, args).zipped.foldRight(e1){
               (x,expression) => x match{
                 case ((string,ty),value) => substitute(expression,value,string)
               }
-            }
+            }//end e1p
 
             p match {
               case None => e1p
               case Some(x1) => substitute(e1p,v1,x1)
-            }
-          }
+            }//end p match
+
+          }//end Function case
 
           case _ => throw new StuckError(e)
-        }
+        }//end v1 match
+
+      }//end Call
 
       case Call(v1 @ Function(_, _, _, _), args) => {
         val args1 = mapFirst { (a: Expr) => if (!isValue(a)) Some(step(a)) else None }(args)
         Call(v1, args1)
-      }
+      }//end call
       /*** Fill-in more cases here. ***/
-
-
 
       case Obj(field) => {
 
@@ -325,12 +334,11 @@ object Lab4 extends jsy.util.JsyApplication {
           arg match{
             case (s, e1) => if (!isValue(e1)) Some(s, step(e1)) else None
           }
-        }
+        }//end helper
 
         Obj(mapFirst(helper)(myList).toMap)
 
       }//end Obj
-
 
       case GetField(Obj(fields), f) => fields.get(f) match {
         case Some(e) => e
@@ -340,7 +348,6 @@ object Lab4 extends jsy.util.JsyApplication {
       case GetField(e1, f) => GetField(step(e1), f)
         
       /* Inductive Cases: Search Rules */
-
       case Call(e1, args) => Call(step(e1), args)
       case Print(e1) => Print(step(e1))
       case Unary(uop, e1) => Unary(uop, step(e1))
@@ -354,8 +361,9 @@ object Lab4 extends jsy.util.JsyApplication {
       
       /* Everything else is a stuck error. Should not happen if e is well-typed. */
       case _ => throw StuckError(e)
-    }
-  }
+    }//end e match
+
+  }//end step
   /* External Interfaces */
   
   this.debug = true // comment this out or set to false if you don't want print debugging information
