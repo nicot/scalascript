@@ -73,7 +73,7 @@ object Lab4 extends jsy.util.JsyApplication {
 
       (acc,x) => acc match{
         case (bool,None) => (bool,Some(x))
-        case (bool,x1) => ((x1.get > x && bool),Some(x))
+        case (bool,x1) => (x1.get > x && bool,Some(x))
       }
 
     }
@@ -87,7 +87,7 @@ object Lab4 extends jsy.util.JsyApplication {
   // how library functions are used.
   def hasFunctionTyp(t: Typ): Boolean = t match {
     case TFunction(_, _) => true
-    case TObj(fields) if (fields exists { case (_, t) => hasFunctionTyp(t) }) => true
+    case TObj(fields) if fields exists { case (_, t) => hasFunctionTyp(t) } => true
     case _ => false
   }
   
@@ -152,7 +152,7 @@ object Lab4 extends jsy.util.JsyApplication {
          //must typ e1 to check for possible errors in e1
 
       case If(e1,e2,e3) => (typ(e1),typ(e2),typ(e3)) match{
-        case(TBool,x,y) =>{ if(x==y) x else err(y,e2) }
+        case(TBool,x,y) => if(x==y) x else err(y,e2)
         case (a,_,_)    => err(a,e1)
       }//end if
 
@@ -193,7 +193,7 @@ object Lab4 extends jsy.util.JsyApplication {
 
             case (ty,para) => if(ty._2 != typ(para)) err(typ(para),para) else typ(para)
 
-          };
+          }
           tret
         }
 

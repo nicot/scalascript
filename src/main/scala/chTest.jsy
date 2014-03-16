@@ -1,0 +1,20 @@
+const x = 5;
+jsy.print(x);
+
+const helper = function(x:number) {
+
+    const a = "Hello";
+    const b = "World";
+
+    return x > 1 ? a+b : "False";
+}
+
+
+const zoomba = function(x:number, y:number){
+
+    const output = helper(x+y);
+    return output;
+
+}
+
+jsy.print(zoomba(2, 4))
