@@ -1,4 +1,4 @@
-name := "lab4-grader"
+name := "lab5-grader"
 
 version := "1.0"
 
