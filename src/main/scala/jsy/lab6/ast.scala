@@ -1,6 +1,7 @@
-package jsy.lab5
+package jsy.lab6
 import scala.util.parsing.input.Positional
-import scala.collection.immutable.HashMap
+import scala.Option.option2Iterable
+import scala.util.parsing.input.Position
 
 /**
  * @author Bor-Yuh Evan Chang
@@ -107,13 +108,33 @@ object ast {
   case class TVar(tvar: String) extends Typ
   case class TInterface(tvar: String, t: Typ) extends Typ
   
+  /* Regular Expressions */
+  case class RE(re: RegExpr) extends Expr
+  case object TRegExp extends Typ
+  
+  sealed abstract class RegExpr
+  case object RNoString extends RegExpr
+  case object REmptyString extends RegExpr
+  case class RSingle(c: Char) extends RegExpr
+  case class RConcat(re1: RegExpr, re2: RegExpr) extends RegExpr
+  case class RUnion(re1: RegExpr, re2: RegExpr) extends RegExpr
+  case class RStar(re1: RegExpr) extends RegExpr
+  case object RAnyChar extends RegExpr
+  case class RPlus(re1: RegExpr) extends RegExpr
+  case class ROption(re1: RegExpr) extends RegExpr
+  case class RIntersect(re1: RegExpr, re2: RegExpr) extends RegExpr
+  case class RNeg(re1: RegExpr) extends RegExpr
+  
+  /* Generic Run-Time Call */
+  case class RuntimeCall(f: String, args: List[Expr]) extends Expr
+  
   /*
    * DoWith is a data structure that holds a function that returns a result of
    * type R with a input-output state of type W.
    * 
    * Aside: This is also known as the State monad.
    */
-  sealed class DoWith[W,R](doer: W => (W,R)) {
+  sealed class DoWith[W,+R](doer: W => (W,R)) {
     def apply(w: W) = doer(w)
 
     def map[B](f: R => B): DoWith[W,B] = new DoWith[W,B]({
@@ -132,37 +153,33 @@ object ast {
   }
   
   def doget[W]: DoWith[W,W] = new DoWith[W,W]({ w => (w, w) })
-  def doreturn[W,R](r: R): DoWith[W,R] = doget map { _ => r }
-  def domodify[W](f: W => W): DoWith[W,Unit] = doget flatMap {
-    w => new DoWith[W,Unit]({ _ => (f(w), ()) })
-  }
+  def doreturn[W,R](r: R): DoWith[W,R] = new DoWith[W,R]({ w => (w,r) }) /* doget map { _ => r } */
+  def domodify[W](f: W => W): DoWith[W,Unit] = new DoWith[W,Unit]({ w => (f(w), ()) }) /* doget flatMap { w => new DoWith[W,Unit]({ _ => (f(w), ()) }) } */
   
-  /* Memory */
-  class Mem private (map: Map[A, Expr], nextAddr: Int) {
+  /*
+   * Memory
+   * 
+   * Note that the memempty and memalloc functions would idiomatically be in
+   * the companion object to this class, but we do have a companion object to
+   * avoid introducing this feature.
+   */
+  class Mem private[ast] (map: Map[A, Expr], nextAddr: Int) {
     def apply(key: A): Expr = map(key)
     def get(key: A): Option[Expr] = map.get(key)
     def +(kv: (A, Expr)): Mem = new Mem(map + kv, nextAddr)
     def contains(key: A): Boolean = map.contains(key)
     
-    private def alloc(v: Expr): (Mem, A) = {
+    private[ast] def alloc(v: Expr): (Mem, A) = {
       val fresha = A(nextAddr)
       (new Mem(map + (fresha -> v), nextAddr + 1), fresha)
     }
     
     override def toString: String = map.toString
   }
-  object Mem {
-    def empty = new Mem(Map.empty, 1)
-    def alloc(v: Expr): DoWith[Mem, A] = {
-      for {
-        m <- doget[Mem]
-        (mp, a) = m.alloc(v)
-        _ <- domodify { (_: Mem) => mp }
-      } yield
-      a
-    }
-  }
   
+  def memempty = new Mem(Map.empty, 1)
+  def memalloc(v: Expr): DoWith[Mem, A] = new DoWith[Mem,A]({ (m: Mem) => m.alloc(v) })
+
   /* Define values. */
   def isValue(e: Expr): Boolean = e match {
     case N(_) | B(_) | Undefined | S(_) | Function(_, _, _, _) | A(_) | Null => true
@@ -263,6 +280,7 @@ object ast {
     case TNull => "Null"
     case TVar(tvar) => tvar
     case TInterface(tvar, t1) => "Interface %s %s".format(tvar, pretty(t1))
+    case TRegExp => "RegExp"
   }
   
   def pretty(m: PMode): String = m match {
@@ -292,13 +310,15 @@ object ast {
     case GetField(e1, _) => freeVarsVar(e1)
     case Assign(e1, e2) => freeVarsVar(e1) | freeVarsVar(e2)
     case InterfaceDecl(_, _, e1) => freeVarsVar(e1)
+    case RE(_) => Set.empty
+    case RuntimeCall(f, args) => args.foldLeft(Set.empty: Set[Var]){ ((acc: Set[Var], ei) => acc | freeVarsVar(ei)) }
   }
   def freeVars(e: Expr): Set[String] = freeVarsVar(e) map { case Var(x) => x }
   
   /* Check closed expressions. */
   class UnboundVariableError(x: Var) extends Exception {
     override def toString =
-      Parser.formatErrorMessage(x.pos, "UnboundVariableError", "unbound variable %s".format(x.x))
+      JsyParser.formatErrorMessage(x.pos, "UnboundVariableError", "unbound variable %s".format(x.x))
   }
   
   def closed(e: Expr): Boolean = freeVarsVar(e).isEmpty
@@ -323,6 +343,8 @@ object ast {
         case GetField(e1, f) => GetField(tr(e1), f)
         case Assign(e1, e2) => Assign(tr(e1), tr(e2))
         case InterfaceDecl(tvar, t, e1) => InterfaceDecl(tvar, t, tr(e1))
+        case RE(_) => e
+        case RuntimeCall(f, args) => RuntimeCall(f, args map tr)
       }
       f(e)
     }
@@ -347,6 +369,7 @@ object ast {
           TFunction(paramsep, tr(rt))
         case TObj(fields) => TObj(fields mapValues tr)
         case TInterface(tvar, t1) => TInterface(tvar, tr(t1))
+        case TRegExp => t
       }
       f(t)
     }
@@ -473,6 +496,9 @@ object ast {
         case GetField(e1, f) => GetField(ren(e1), f)
         case Assign(e1, e2) => Assign(ren(e1), ren(e2))
         
+        case RE(_) => e
+        case RuntimeCall(f, args) => RuntimeCall(f, args map ren)
+        
         /* Should not match: should have been removed. */
         case InterfaceDecl(_, _, _) => throw new IllegalArgumentException("Gremlins: Encountered unexpected expression %s.".format(e))
       }
@@ -489,7 +515,7 @@ object ast {
    * 
    */
   case class DynamicTypeError(e: Expr) extends Exception {
-    override def toString = Parser.formatErrorMessage(e.pos, "DynamicTypeError", "in evaluating " + e)
+    override def toString = JsyParser.formatErrorMessage(e.pos, "DynamicTypeError", "in evaluating " + e)
   }
   
   /*
@@ -500,7 +526,7 @@ object ast {
    * 
    */
   case class NullDereferenceError(e: Expr) extends Exception {
-    override def toString = Parser.formatErrorMessage(e.pos, "NullDereferenceError", "in evaluating " + e)
+    override def toString = JsyParser.formatErrorMessage(e.pos, "NullDereferenceError", "in evaluating " + e)
   }
   
   /*
@@ -512,7 +538,7 @@ object ast {
    */
   case class StaticTypeError(tbad: Typ, esub: Expr, e: Expr) extends Exception {
     override def toString =
-      Parser.formatErrorMessage(esub.pos, "StaticTypeError", "invalid type %s for sub-expression %s in %s".format(pretty(tbad), esub, e))
+      JsyParser.formatErrorMessage(esub.pos, "StaticTypeError", "invalid type %s for sub-expression %s in %s".format(pretty(tbad), esub, e))
   }
   
   /*
@@ -524,7 +550,18 @@ object ast {
    * 
    */
   case class StuckError(e: Expr) extends Exception {
-    override def toString = Parser.formatErrorMessage(e.pos, "StuckError", "in evaluating " + e)
+    override def toString = JsyParser.formatErrorMessage(e.pos, "StuckError", "in evaluating " + e)
+  }
+  
+  /*
+   * Syntax Error exception.  Throw this exception to signal an error
+   * in parsing.
+   * 
+   *   throw new SyntaxError(msg, pos)
+   * 
+   */
+  case class SyntaxError(msg: String, pos: Position) extends Exception {
+    override def toString = JsyParser.formatErrorMessage(pos, "SyntaxError", msg)
   }
   
 }
