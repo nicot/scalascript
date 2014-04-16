@@ -99,26 +99,35 @@ object Lab6 extends jsy.util.JsyApplication {
   /*** Regular Expression Matching ***/
   
   def retest(re: RegExpr, s: String): Boolean = {
-    def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = (re, chars) match {
-      /* Basic Operators */
-      case (RNoString, _) => throw new UnsupportedOperationException
-      case (REmptyString, _) => throw new UnsupportedOperationException
-      case (RSingle(_), Nil) => throw new UnsupportedOperationException
-      case (RSingle(c1), c2 :: t) => throw new UnsupportedOperationException
-      case (RConcat(re1, re2), _) => throw new UnsupportedOperationException
-      case (RUnion(re1, re2), _) => throw new UnsupportedOperationException
-      case (RStar(re1), _) => throw new UnsupportedOperationException
+    def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
+      (re, chars) match {
+        /* Basic Operators */
+        //re: RConcat(RSingle(a),RStar(RSingle(a)))
+        case (RNoString, _) => sc(chars)
+        case (REmptyString, _) => sc(chars)
+        case (RSingle(c1), chars) => chars.length == 1 &&
+          c1 == chars.head
+        case (RConcat(re1, re2), _) => chars.length > 0 &&
+          test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
+        case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
+        case (RStar(re1), _) => sc(chars) ||
+          test(re1, List(chars.head), sc) && test(RStar(re1), chars.tail, sc)
 
-      /* Extended Operators */
-      case (RAnyChar, Nil) => false
-      case (RAnyChar, _ :: t) => sc(t)
-      case (RPlus(re1), _) => throw new UnsupportedOperationException
-      case (ROption(re1), _) => throw new UnsupportedOperationException 
-      
-      /***** Extra Credit Cases *****/
-      case (RIntersect(re1, re2), _) => throw new UnsupportedOperationException 
-      case (RNeg(re1), _) => throw new UnsupportedOperationException 
-    } 
+        /* Extended Operators */
+        case (RAnyChar, Nil) => true
+        case (RAnyChar, _ :: t) => sc(t)
+        case (RPlus(re1), _) => chars.length > 0 &&
+          test(re1, List(chars.head), sc) && (sc(chars.tail) || test(RPlus(re1), chars.tail, sc))
+        case (ROption(re1), _) => sc(chars) || re1 == chars.head
+        
+        /***** Extra Credit Cases *****/
+        case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
+        case (RNeg(re1), _) => !test(re1, chars, sc)
+      }
+    }
+    println("re: " + re);
+    println("string: " + s);
+    println("result: " + test(re, s.toList, { chars => chars.isEmpty }));
     test(re, s.toList, { chars => chars.isEmpty })
   }
   
