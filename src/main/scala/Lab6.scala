@@ -119,8 +119,9 @@ object Lab6 extends jsy.util.JsyApplication {
         case (REmptyString, _) => chars.isEmpty
         case (RSingle(c1), chars) => chars.length == 1 &&
           c1 == chars.head
-        case (RConcat(re1, re2), _) => chars.length > 0 &&
-          test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
+        case (RConcat(re1, re2), _) =>
+          if (chars.length == 0) test(re1, Nil, sc) && test(re2, Nil, sc)
+          else test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
         case (RStar(re1), _) => sc(chars) || {
           val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
