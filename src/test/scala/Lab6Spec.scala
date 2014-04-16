@@ -67,6 +67,7 @@ class Lab6Spec extends FlatSpec {
   val respecsast = respecs mapValues { l => l map { s => (s, jsy.lab6.RegExprParser.parse(s)) } }
   
   def assertRefRetest(re: RegExpr, str: String) {
+    println(jsy.lab6.Lab6Reference.retest(re, str).toString + retest(re, str).toString);
     assertResult(jsy.lab6.Lab6Reference.retest(re, str)) { retest(re, str) }
   }
   
@@ -119,5 +120,4 @@ class Lab6Spec extends FlatSpec {
       for (s <- strings) assertRefRetest(re, s)
     }
   }
-
 }

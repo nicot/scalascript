@@ -102,32 +102,43 @@ object Lab6 extends jsy.util.JsyApplication {
     def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
       (re, chars) match {
         /* Basic Operators */
-        //re: RConcat(RSingle(a),RStar(RSingle(a)))
-        case (RNoString, _) => sc(chars)
-        case (REmptyString, _) => sc(chars)
+        case (RNoString, _) => false //Fucking hack because this will never show up.
+        case (REmptyString, _) => chars.isEmpty
         case (RSingle(c1), chars) => chars.length == 1 &&
           c1 == chars.head
         case (RConcat(re1, re2), _) => chars.length > 0 &&
           test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
-        case (RStar(re1), _) => sc(chars) ||
-          test(re1, List(chars.head), sc) && test(RStar(re1), chars.tail, sc)
+        case (RStar(re1), _) => {
+          println(chars)
+          def stretch(re:RegExpr, h: List[Char], t: List[Char]): (Boolean, List[Char]) = t match {
+            case Nil => (test(re1, h, sc), Nil)
+            case _ => {
+              val (pass, rest) = (test(re, h, sc), t)
+              if (pass) (pass, rest) else stretch(re, h:+t.head, t.tail)
+            }
+          }
+          sc(chars) || {
+            val (pass, rest) = stretch(re, List(chars.head), chars.tail)
+            pass && test(re, rest, sc)
+            //Vulnerability here for (aaaa).match(/(aa)*/)
+            //Also runs in like n^5 time
+          }
+        }
 
         /* Extended Operators */
-        case (RAnyChar, Nil) => true
-        case (RAnyChar, _ :: t) => sc(t)
+        case (RAnyChar, _) => chars.length == 1
         case (RPlus(re1), _) => chars.length > 0 &&
           test(re1, List(chars.head), sc) && (sc(chars.tail) || test(RPlus(re1), chars.tail, sc))
-        case (ROption(re1), _) => sc(chars) || re1 == chars.head
+        case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
         
         /***** Extra Credit Cases *****/
         case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
         case (RNeg(re1), _) => !test(re1, chars, sc)
       }
     }
-    println("re: " + re);
-    println("string: " + s);
-    println("result: " + test(re, s.toList, { chars => chars.isEmpty }));
+    //println(s);
+    //println(re);
     test(re, s.toList, { chars => chars.isEmpty })
   }
   
@@ -163,7 +174,7 @@ object Lab6 extends jsy.util.JsyApplication {
   this.debug = true // comment this out or set to false if you don't want print debugging information
   this.maxSteps = Some(500) // comment this out or set to None to not bound the number of steps.
 
-  var useReferenceRegExprParser = false /* set to true to use the reference parser */
+  var useReferenceRegExprParser = true /* set to true to use the reference parser */
   var useReferenceJsyInterpreter = true /* set to false to use your JavaScripty interpreter */
 
   this.flagOptions = this.flagOptions ++ List(
