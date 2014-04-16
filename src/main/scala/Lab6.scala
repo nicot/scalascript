@@ -99,6 +99,19 @@ object Lab6 extends jsy.util.JsyApplication {
   /*** Regular Expression Matching ***/
   
   def retest(re: RegExpr, s: String): Boolean = {
+    def stretch(re:RegExpr, h: List[Char], t: List[Char]): (Boolean, List[Char]) = {
+      // Runs in approximately O(n^5), but it sometimes works
+      // Searches through a given list of chars until it hits a match, and returns true and
+      // the unmatched portion of the string. If nothing is found, (False,Nil).
+      val sc = {chars:List[Char] => chars.isEmpty:Boolean};
+      t match {
+        case Nil => (test(re, h, sc), Nil)
+        case _ => {
+          val (pass, rest) = (test(re, h, sc), t)
+          if (pass) (pass, rest) else stretch(re, h:+t.head, t.tail)
+        }
+      }
+    }
     def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
       (re, chars) match {
         /* Basic Operators */
@@ -109,27 +122,15 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RConcat(re1, re2), _) => chars.length > 0 &&
           test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
-        case (RStar(re1), _) => {
-          println(chars)
-          def stretch(re:RegExpr, h: List[Char], t: List[Char]): (Boolean, List[Char]) = t match {
-            case Nil => (test(re1, h, sc), Nil)
-            case _ => {
-              val (pass, rest) = (test(re, h, sc), t)
-              if (pass) (pass, rest) else stretch(re, h:+t.head, t.tail)
-            }
-          }
-          sc(chars) || {
-            val (pass, rest) = stretch(re, List(chars.head), chars.tail)
-            pass && test(re, rest, sc)
-            //Vulnerability here for (aaaa).match(/(aa)*/)
-            //Also runs in like n^5 time
-          }
-        }
+        case (RStar(re1), _) => sc(chars) || {
+          val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
+          pass && (if (rest.length > 0) test(re, rest, sc) else true) }
 
         /* Extended Operators */
         case (RAnyChar, _) => chars.length == 1
-        case (RPlus(re1), _) => chars.length > 0 &&
-          test(re1, List(chars.head), sc) && (sc(chars.tail) || test(RPlus(re1), chars.tail, sc))
+        case (RPlus(re1), _) => test(re1, chars, sc) || chars.length > 0 &&
+          { val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
+          if (rest.length > 0 && pass) test(RStar(re1), rest, sc) else pass }
         case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
         
         /***** Extra Credit Cases *****/
@@ -137,8 +138,8 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RNeg(re1), _) => !test(re1, chars, sc)
       }
     }
-    //println(s);
-    //println(re);
+    println(s);
+    println(re);
     test(re, s.toList, { chars => chars.isEmpty })
   }
   
