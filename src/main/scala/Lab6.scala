@@ -1,5 +1,6 @@
-import jsy.lab6.JsyInterpreter
 import jsy.lab6.JsyParser
+import scala.util.parsing.combinator.Parsers
+import scala.util.parsing.input.CharSequenceReader
 
 object Lab6 extends jsy.util.JsyApplication {
   import jsy.lab6.ast._
@@ -12,9 +13,6 @@ object Lab6 extends jsy.util.JsyApplication {
    */
 
   /*** Regular Expression Parsing ***/
-  import scala.util.parsing.combinator.Parsers
-  import scala.util.parsing.input.Reader
-  import scala.util.parsing.input.CharSequenceReader
 
   /* We define a recursive decent parser for regular expressions in
    * RegExprParser.
@@ -81,9 +79,22 @@ object Lab6 extends jsy.util.JsyApplication {
        meta-language character.  Use delimiters.contains(c) for a Char c. */
     val delimiters = Set('|', '&', '~', '*', '+', '?', '!', '#', '.', '(', ')')
 
-    def atom(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
-    
-
+    def atom(next: Input): ParseResult[RegExpr] =
+      if(next.atEnd) Failure("expected atom", next)
+      else (next.first, next.rest) match {
+        case ('!', next) => Success(RNoString, next)
+        case ('#', next) => Success(REmptyString, next)
+        case ('.', next) => Success(RAnyChar, next)
+        case ('(', next) => re(next) match {
+          case Success(r, next) => (next.first, next.rest) match {
+            case (')', next) => Success(r, next)
+            case _ => Failure("unmatched (", next)
+          }
+          case fail => fail
+        }
+        case (c,next) if(!delimiters.contains(c)) => Success(RSingle(c), next)
+        case _ => Failure("expected atom", next)
+      }
     /* External Interface */
     
     def parse(next: Input): RegExpr = re(next) match {
@@ -115,8 +126,8 @@ object Lab6 extends jsy.util.JsyApplication {
     def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
       (re, chars) match {
         /* Basic Operators */
-        case (RNoString, _) => false //Fucking hack because this will never show up.
-        case (REmptyString, _) => chars.isEmpty
+        case (RNoString, _) => false
+        case (REmptyString, _) => sc(chars)
         case (RSingle(c1), chars) => chars.length == 1 &&
           c1 == chars.head
         case (RConcat(re1, re2), _) =>
