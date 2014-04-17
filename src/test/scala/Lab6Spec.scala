@@ -22,9 +22,9 @@ class Lab6Spec extends FlatSpec {
   )
 
   val respecs = Map(1 -> List(
-    "a",
-    "b",
-    ".",
+    //"a",
+    //"b",
+    //".",
     "aa",
     "a.",
     "!",

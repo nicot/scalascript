@@ -52,7 +52,7 @@ object Lab6 extends jsy.util.JsyApplication {
     def re(next: Input): ParseResult[RegExpr] = union(next)
 
     def union(next: Input): ParseResult[RegExpr] = intersect(next) match {
-      case Success(r, next) => {
+      case Success(r, next) => println("In Union"); {
         def unions(acc: RegExpr, next: Input): ParseResult[RegExpr] =
           if (next.atEnd) Success(acc, next)
           else (next.first, next.rest) match {
@@ -67,13 +67,73 @@ object Lab6 extends jsy.util.JsyApplication {
       case _ => Failure("expected intersect", next)
     }
 
-    def intersect(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def intersect(next: Input): ParseResult[RegExpr] = concat(next) match{
+      case Success(r,next) => println("In intersect"); {
+        def intersections(acc: RegExpr, next:Input): ParseResult[RegExpr] =
+          if(next.atEnd) Success(acc,next)
+          else (next.first, next.rest) match {
+            case('&',next) => concat(next) match{
+              case Success(r,next) => intersections(RIntersect(acc,r), next)
+              case _ => Failure("expected concat",next)
+            }
+            case _ => Success(acc,next)
+          }
+        intersections(r,next)
+      }
+      case _ => Failure("expected concat", next)
+    }
 
-    def concat(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def concat(next: Input): ParseResult[RegExpr] = not(next) match{
+      case Success(r,next) => println("In concat"); {
+        def concats(acc: RegExpr, next:Input): ParseResult[RegExpr] =
+          if(next.atEnd) Success(acc,next)
+          else (next.first, next.rest) match {
+            case(_,next) => not(next) match{
+              case Success(r,next) => concats(RConcat(acc,r), next)
+              case _ => Failure("expected something",next)
+            }
+            case _ => Success(acc,next)
+          }
+        concats(r,next)
+      }
+      case _ => Failure("expected something", next)
+    }
 
-    def not(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def not(next: Input): ParseResult[RegExpr] = star(next) match{
 
-    def star(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+      case Success(r,next) => println("In not");
+        if (next.atEnd) Success(r,next)
+        else (next.first, next.rest) match{
+          case ('~',next) => star(next) match{
+            case Success(r,n) => Success(RNeg(r), next)
+            case _ => Failure("diffexp", next)
+          }
+          case _ => Success(r,next)
+        }
+      case _ => Failure("Noooo",next)
+
+    }
+
+    def star(next: Input): ParseResult[RegExpr] = atom(next) match{
+      case Success(r, next) => println("In Star");
+        if(next.atEnd) Success(r,next)
+        else (next.first, next.rest) match{
+          case ('*', next) => atom(next) match{
+            case Success(r, n) => Success(RStar(r),next)
+            case _ => Failure("Expected Star", next)
+          }
+          case ('+', next) => atom(next) match{
+            case Success(r, n) => Success(RPlus(r),next)
+            case _ => Failure("Expected +", next)
+          }
+          case ('?', next) =>  atom(next) match{
+            case Success(r, n) => Success(ROption(r),next)
+            case _ => Failure("Expected Star", next)
+          }
+          case _ => Success(r, next)
+        }
+      case _ => Failure("Noo in star",next)
+    }
 
     /* This set is useful to check if a Char is/is not a regular expression
        meta-language character.  Use delimiters.contains(c) for a Char c. */
@@ -142,6 +202,34 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RAnyChar, _) => chars.length == 1
         case (RPlus(re1), _) => test(re1, chars, sc) || chars.length > 0 &&
           { val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
+            if (rest.length > 0 && pass) test(RStar(re1), rest, sc) else pass }
+        case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
+
+        /***** Extra Credit Cases *****/
+        case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
+        case (RNeg(re1), _) => !test(re1, chars, sc)
+      }
+    }
+    test(re, s.toList, { chars => chars.isEmpty })
+  }
+    /*
+    def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
+      (re, chars) match {
+        /* Basic Operators */
+        case (RNoString, _) => false
+        case (REmptyString, _) => sc(chars)
+        case (RSingle(c1), chars) => chars.length == 1 &&
+          c1 == chars.head
+        case (RConcat(re1, re2), _) => test(re1,chars, { rem_chars => test(re2,rem_chars,sc) })
+        case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
+        case (RStar(re1), _) =>
+          sc(chars) ||
+          test(re1,chars, {remchars => if (remchars.length < chars.length) test(RStar(re1),remchars,sc) else false})
+
+        /* Extended Operators */
+        case (RAnyChar, _) => chars.length == 1
+        case (RPlus(re1), _) => test(re1, chars, sc) || chars.length > 0 &&
+          { val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
           if (rest.length > 0 && pass) test(RStar(re1), rest, sc) else pass }
         case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
         
@@ -154,6 +242,7 @@ object Lab6 extends jsy.util.JsyApplication {
     println(re);
     test(re, s.toList, { chars => chars.isEmpty })
   }
+  */
   
   
   /*** JavaScripty Interpreter ***/
@@ -277,3 +366,24 @@ object Lab6 extends jsy.util.JsyApplication {
   }
   
 }
+/*
+
+def multlistDirect(l: List[Int], sc: Int => Int): Int = l match{
+  case Nil => 1
+  case h :: t => h * multListDirect(t)
+}
+
+def multlistTail(l: List[Int], sc: Int => Int): Int = l match{
+  case Nil => acc
+  case 0 :: _ => 0
+  case h :: t => multListTail(t, h * acc)
+}
+
+def multlistDelayed(l: List[Int], sc: Int => Int): Int = l match{
+  case Nil => sc(1)
+  case 0 :: _ => 0
+  case h :: t => multlistDelayed(t, { multt => sc(h * multt) })
+}
+
+
+ */
