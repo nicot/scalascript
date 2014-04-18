@@ -99,40 +99,28 @@ object Lab6 extends jsy.util.JsyApplication {
   /*** Regular Expression Matching ***/
   
   def retest(re: RegExpr, s: String): Boolean = {
-    def stretch(re:RegExpr, h: List[Char], t: List[Char]): (Boolean, List[Char]) = {
-      // Runs in approximately O(n^5), but it sometimes works
-      // Searches through a given list of chars until it hits a match, and returns true and
-      // the unmatched portion of the string. If nothing is found, (False,Nil).
-      val sc = {chars:List[Char] => chars.isEmpty:Boolean};
-      t match {
-        case Nil => (test(re, h, sc), Nil)
-        case _ => {
-          val (pass, rest) = (test(re, h, sc), t)
-          if (pass) (pass, rest) else stretch(re, h:+t.head, t.tail)
-        }
-      }
-    }
     def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
       (re, chars) match {
         /* Basic Operators */
-        case (RNoString, _) => false //Fucking hack because this will never show up.
-        case (REmptyString, _) => chars.isEmpty
-        case (RSingle(c1), chars) => chars.length == 1 &&
-          c1 == chars.head
-        case (RConcat(re1, re2), _) =>
-          if (chars.length == 0) test(re1, Nil, sc) && test(re2, Nil, sc)
-          else test(re1, List(chars.head), sc) && test(re2, chars.tail, sc)
+        case (RNoString, _) => false
+        case (REmptyString, _) => sc(chars)
+        case (RSingle(c1), Nil) => false
+        case (RSingle(c1), h::t) => h == c1 && sc(t)
+        case (RConcat(re1, re2), _) => test(re1, chars, {rest => test(re2, rest, sc)})
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
-        case (RStar(re1), _) => sc(chars) || {
-          val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
-          pass && (if (rest.length > 0) test(re, rest, sc) else true) }
+        case (RStar(re1), Nil) => true
+        //Problem: sc == test(re, rest, sc), infinite recursion
+        //Check if we're at the end of the star match. If not, check if the first part of chars is a match.
+        //If the beginning subset is a match, check if the rest of the characters are a match.
+        case (RStar(re1), _) => test(re1, chars, {rest => test(re, rest, sc)}) || sc(chars)
+        //I am now in the hard part of computer science. Buckle down and learn your shit.
 
         /* Extended Operators */
-        case (RAnyChar, _) => chars.length == 1
-        case (RPlus(re1), _) => test(re1, chars, sc) || chars.length > 0 &&
-          { val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
-          if (rest.length > 0 && pass) test(RStar(re1), rest, sc) else pass }
-        case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
+        case (RAnyChar, Nil) => false
+        case (RAnyChar, h::t) => sc(t)
+        case (RPlus(re1), _) => test(re1, chars, {rest => test(RStar(re1), rest, sc)})
+        case (ROption(re1), Nil) => true
+        case (ROption(re1), h::t) => sc(chars) || test(re1, chars, sc)
         
         /***** Extra Credit Cases *****/
         case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
