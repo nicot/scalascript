@@ -163,19 +163,18 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RSingle(c1), h::t) => h == c1 && sc(t)
         case (RConcat(re1, re2), _) => test(re1, chars, {rest => test(re2, rest, sc)})
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
-        case (RStar(re1), Nil) => true
-        case (RStar(re1), _) => sc(chars) || test(re1, chars, {rest => if (chars == rest) false else test(re, rest, sc)})
+        case (RStar(re1), _) => sc(chars) || test(re1, chars,
+          {rest => if (chars == rest) false else test(re, rest, sc)})
 
         /* Extended Operators */
         case (RAnyChar, Nil) => false
         case (RAnyChar, h::t) => sc(t)
         case (RPlus(re1), _) => test(re1, chars, {rest => test(RStar(re1), rest, sc)})
-        case (ROption(re1), Nil) => true
-        case (ROption(re1), h::t) => sc(chars) || test(re1, chars, sc)
+        case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
         
         /***** Extra Credit Cases *****/
-        case (RIntersect(re1, re2), _) => test(re1, chars, { _ => test(re2, chars, sc)})
-        case (RNeg(re1), _) => sc(chars) && !test(re1, chars, sc)
+        case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
+        case (RNeg(re1), _) => !test(re1, chars, {rest => rest.isEmpty}) || (sc(chars) && !chars.isEmpty)
       }
     }
     test(re, s.toList, { chars => chars.isEmpty })
