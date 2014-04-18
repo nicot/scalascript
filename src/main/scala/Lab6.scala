@@ -91,6 +91,7 @@ object Lab6 extends jsy.util.JsyApplication {
       case _ => Failure("expected intersect", next)
     }
 
+
     def intersect(next: Input): ParseResult[RegExpr] = concat(next) match{
       case Success(r,next) => println("In intersect"); {
         def intersections(acc: RegExpr, next:Input): ParseResult[RegExpr] =
