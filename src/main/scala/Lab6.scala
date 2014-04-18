@@ -5,35 +5,11 @@ object Lab6 extends jsy.util.JsyApplication {
   
   /*
    * CSCI 3155: Lab 6
-   * <Your Name>
+   * Dominic Tonozzi and Matthias Sainz
    * 
-   * Partner: <Your Partner's Name>
-   * Collaborators: <Any Collaborators>
+   * Collaborators: Jacob Resman
    */
 
-  /*
-   * Fill in the appropriate portions above by replacing things delimited
-   * by '<'... '>'.
-   * 
-   * Replace 'YourIdentiKey' in the object name above with your IdentiKey.
-   * 
-   * Replace the 'throw new UnsupportedOperationException' expression with
-   * your code in each function.
-   * 
-   * Do not make other modifications to this template, such as
-   * - adding "extends App" or "extends Application" to your Lab object,
-   * - adding a "main" method, and
-   * - leaving any failing asserts.
-   * 
-   * Your lab will not be graded if it does not compile.
-   * 
-   * This template compiles without error. Before you submit comment out any
-   * code that does not compile or causes a failing assert.  Simply put in a
-   * 'throws new UnsupportedOperationException' as needed to get something
-   * that compiles without error.
-   */
-
-  
   /*** Regular Expression Parsing ***/
   import scala.util.parsing.combinator.Parsers
   import scala.util.parsing.input.CharSequenceReader
@@ -188,11 +164,7 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RConcat(re1, re2), _) => test(re1, chars, {rest => test(re2, rest, sc)})
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
         case (RStar(re1), Nil) => true
-        //Problem: sc == test(re, rest, sc), infinite recursion
-        //Check if we're at the end of the star match. If not, check if the first part of chars is a match.
-        //If the beginning subset is a match, check if the rest of the characters are a match.
         case (RStar(re1), _) => test(re1, chars, {rest => test(re, rest, sc)}) || sc(chars)
-        //I am now in the hard part of computer science. Buckle down and learn your shit.
 
         /* Extended Operators */
         case (RAnyChar, Nil) => false
