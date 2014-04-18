@@ -1,18 +1,42 @@
 import jsy.lab6.JsyParser
-import scala.util.parsing.combinator.Parsers
-import scala.util.parsing.input.CharSequenceReader
 
 object Lab6 extends jsy.util.JsyApplication {
   import jsy.lab6.ast._
   
   /*
    * CSCI 3155: Lab 6
-   * Dominic Tonozzi and Matthias Sainz
+   * <Your Name>
    * 
-   * Collaborators: Jacob Resman
+   * Partner: <Your Partner's Name>
+   * Collaborators: <Any Collaborators>
    */
 
+  /*
+   * Fill in the appropriate portions above by replacing things delimited
+   * by '<'... '>'.
+   * 
+   * Replace 'YourIdentiKey' in the object name above with your IdentiKey.
+   * 
+   * Replace the 'throw new UnsupportedOperationException' expression with
+   * your code in each function.
+   * 
+   * Do not make other modifications to this template, such as
+   * - adding "extends App" or "extends Application" to your Lab object,
+   * - adding a "main" method, and
+   * - leaving any failing asserts.
+   * 
+   * Your lab will not be graded if it does not compile.
+   * 
+   * This template compiles without error. Before you submit comment out any
+   * code that does not compile or causes a failing assert.  Simply put in a
+   * 'throws new UnsupportedOperationException' as needed to get something
+   * that compiles without error.
+   */
+
+  
   /*** Regular Expression Parsing ***/
+  import scala.util.parsing.combinator.Parsers
+  import scala.util.parsing.input.CharSequenceReader
 
   /* We define a recursive decent parser for regular expressions in
    * RegExprParser.
@@ -52,7 +76,7 @@ object Lab6 extends jsy.util.JsyApplication {
     def re(next: Input): ParseResult[RegExpr] = union(next)
 
     def union(next: Input): ParseResult[RegExpr] = intersect(next) match {
-      case Success(r, next) => println("In Union"); {
+      case Success(r, next) => {
         def unions(acc: RegExpr, next: Input): ParseResult[RegExpr] =
           if (next.atEnd) Success(acc, next)
           else (next.first, next.rest) match {
@@ -74,7 +98,7 @@ object Lab6 extends jsy.util.JsyApplication {
           else (next.first, next.rest) match {
             case('&',next) => concat(next) match{
               case Success(r,next) => intersections(RIntersect(acc,r), next)
-              case _ => Failure("expected concat",next)
+              case _ => Failure("expected concat", next)
             }
             case _ => Success(acc,next)
           }
@@ -88,10 +112,7 @@ object Lab6 extends jsy.util.JsyApplication {
         def concats(acc: RegExpr, next:Input): ParseResult[RegExpr] =
           if(next.atEnd) Success(acc,next)
           else (next.first, next.rest) match {
-            case(_,next) => not(next) match{
-              case Success(r,next) => concats(RConcat(acc,r), next)
-              case _ => Failure("expected something",next)
-            }
+            case(_,next) => concats(RConcat(acc,r), next)
             case _ => Success(acc,next)
           }
         concats(r,next)
@@ -99,40 +120,24 @@ object Lab6 extends jsy.util.JsyApplication {
       case _ => Failure("expected something", next)
     }
 
-    def not(next: Input): ParseResult[RegExpr] = star(next) match{
-
-      case Success(r,next) => println("In not");
-        if (next.atEnd) Success(r,next)
-        else (next.first, next.rest) match{
-          case ('~',next) => star(next) match{
-            case Success(r,n) => Success(RNeg(r), next)
-            case _ => Failure("diffexp", next)
-          }
-          case _ => Success(r,next)
-        }
-      case _ => Failure("Noooo",next)
-
+    def not(next: Input): ParseResult[RegExpr] = (next.first,next.rest) match{
+      case ('~',next) => not(next) map RNeg
+      case _ => star(next)
     }
 
     def star(next: Input): ParseResult[RegExpr] = atom(next) match{
-      case Success(r, next) => println("In Star");
-        if(next.atEnd) Success(r,next)
-        else (next.first, next.rest) match{
-          case ('*', next) => atom(next) match{
-            case Success(r, n) => Success(RStar(r),next)
-            case _ => Failure("Expected Star", next)
+      case Success(r, next) => println("In Star"); {
+        def stars(acc: RegExpr, next: Input): ParseResult[RegExpr] =
+          if (next.atEnd) Success(acc, next)
+          else (next.first, next.rest) match {
+            case ('*', next) => stars(RStar(acc),next)
+            case ('+', next) => stars(RPlus(acc),next)
+            case ('?', next) => stars(ROption(acc),next)
+            case _ => Success(acc, next)
           }
-          case ('+', next) => atom(next) match{
-            case Success(r, n) => Success(RPlus(r),next)
-            case _ => Failure("Expected +", next)
-          }
-          case ('?', next) =>  atom(next) match{
-            case Success(r, n) => Success(ROption(r),next)
-            case _ => Failure("Expected Star", next)
-          }
-          case _ => Success(r, next)
-        }
-      case _ => Failure("Noo in star",next)
+        stars(r, next)
+     }
+      case _ => Failure("expected atom", next)
     }
 
     /* This set is useful to check if a Char is/is not a regular expression
@@ -140,7 +145,7 @@ object Lab6 extends jsy.util.JsyApplication {
     val delimiters = Set('|', '&', '~', '*', '+', '?', '!', '#', '.', '(', ')')
 
     def atom(next: Input): ParseResult[RegExpr] =
-      if(next.atEnd) Failure("expected atom", next)
+      if (next.atEnd) Failure("expected atom", next)
       else (next.first, next.rest) match {
         case ('!', next) => Success(RNoString, next)
         case ('#', next) => Success(REmptyString, next)
@@ -152,9 +157,11 @@ object Lab6 extends jsy.util.JsyApplication {
           }
           case fail => fail
         }
-        case (c,next) if(!delimiters.contains(c)) => Success(RSingle(c), next)
+        case (c, next) if (!delimiters.contains(c)) => Success(RSingle(c), next)
         case _ => Failure("expected atom", next)
       }
+    
+
     /* External Interface */
     
     def parse(next: Input): RegExpr = re(next) match {
@@ -168,7 +175,7 @@ object Lab6 extends jsy.util.JsyApplication {
   
 
   /*** Regular Expression Matching ***/
-  
+
   def retest(re: RegExpr, s: String): Boolean = {
     def stretch(re:RegExpr, h: List[Char], t: List[Char]): (Boolean, List[Char]) = {
       // Runs in approximately O(n^5), but it sometimes works
@@ -212,37 +219,6 @@ object Lab6 extends jsy.util.JsyApplication {
     }
     test(re, s.toList, { chars => chars.isEmpty })
   }
-    /*
-    def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
-      (re, chars) match {
-        /* Basic Operators */
-        case (RNoString, _) => false
-        case (REmptyString, _) => sc(chars)
-        case (RSingle(c1), chars) => chars.length == 1 &&
-          c1 == chars.head
-        case (RConcat(re1, re2), _) => test(re1,chars, { rem_chars => test(re2,rem_chars,sc) })
-        case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
-        case (RStar(re1), _) =>
-          sc(chars) ||
-          test(re1,chars, {remchars => if (remchars.length < chars.length) test(RStar(re1),remchars,sc) else false})
-
-        /* Extended Operators */
-        case (RAnyChar, _) => chars.length == 1
-        case (RPlus(re1), _) => test(re1, chars, sc) || chars.length > 0 &&
-          { val (pass, rest) = stretch(re1, List(chars.head), chars.tail)
-          if (rest.length > 0 && pass) test(RStar(re1), rest, sc) else pass }
-        case (ROption(re1), _) => sc(chars) || test(re1, chars, sc)
-        
-        /***** Extra Credit Cases *****/
-        case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
-        case (RNeg(re1), _) => !test(re1, chars, sc)
-      }
-    }
-    println(s);
-    println(re);
-    test(re, s.toList, { chars => chars.isEmpty })
-  }
-  */
   
   
   /*** JavaScripty Interpreter ***/
@@ -276,7 +252,7 @@ object Lab6 extends jsy.util.JsyApplication {
   this.debug = true // comment this out or set to false if you don't want print debugging information
   this.maxSteps = Some(500) // comment this out or set to None to not bound the number of steps.
 
-  var useReferenceRegExprParser = true /* set to true to use the reference parser */
+  var useReferenceRegExprParser = false /* set to true to use the reference parser */
   var useReferenceJsyInterpreter = true /* set to false to use your JavaScripty interpreter */
 
   this.flagOptions = this.flagOptions ++ List(
@@ -366,24 +342,3 @@ object Lab6 extends jsy.util.JsyApplication {
   }
   
 }
-/*
-
-def multlistDirect(l: List[Int], sc: Int => Int): Int = l match{
-  case Nil => 1
-  case h :: t => h * multListDirect(t)
-}
-
-def multlistTail(l: List[Int], sc: Int => Int): Int = l match{
-  case Nil => acc
-  case 0 :: _ => 0
-  case h :: t => multListTail(t, h * acc)
-}
-
-def multlistDelayed(l: List[Int], sc: Int => Int): Int = l match{
-  case Nil => sc(1)
-  case 0 :: _ => 0
-  case h :: t => multlistDelayed(t, { multt => sc(h * multt) })
-}
-
-
- */
