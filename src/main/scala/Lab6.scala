@@ -1,4 +1,3 @@
-import jsy.lab6.JsyInterpreter
 import jsy.lab6.JsyParser
 
 object Lab6 extends jsy.util.JsyApplication {
@@ -6,14 +5,37 @@ object Lab6 extends jsy.util.JsyApplication {
   
   /*
    * CSCI 3155: Lab 6
-   * Dominic Tonozzi and Matthias Sainz
+   * <Your Name>
    * 
-   * Collaborators: Jacob Resman
+   * Partner: <Your Partner's Name>
+   * Collaborators: <Any Collaborators>
    */
 
+  /*
+   * Fill in the appropriate portions above by replacing things delimited
+   * by '<'... '>'.
+   * 
+   * Replace 'YourIdentiKey' in the object name above with your IdentiKey.
+   * 
+   * Replace the 'throw new UnsupportedOperationException' expression with
+   * your code in each function.
+   * 
+   * Do not make other modifications to this template, such as
+   * - adding "extends App" or "extends Application" to your Lab object,
+   * - adding a "main" method, and
+   * - leaving any failing asserts.
+   * 
+   * Your lab will not be graded if it does not compile.
+   * 
+   * This template compiles without error. Before you submit comment out any
+   * code that does not compile or causes a failing assert.  Simply put in a
+   * 'throws new UnsupportedOperationException' as needed to get something
+   * that compiles without error.
+   */
+
+  
   /*** Regular Expression Parsing ***/
   import scala.util.parsing.combinator.Parsers
-  import scala.util.parsing.input.Reader
   import scala.util.parsing.input.CharSequenceReader
 
   /* We define a recursive decent parser for regular expressions in
@@ -69,19 +91,76 @@ object Lab6 extends jsy.util.JsyApplication {
       case _ => Failure("expected intersect", next)
     }
 
-    def intersect(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
 
-    def concat(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def intersect(next: Input): ParseResult[RegExpr] = concat(next) match{
+      case Success(r,next) => println("In intersect"); {
+        def intersections(acc: RegExpr, next:Input): ParseResult[RegExpr] =
+          if(next.atEnd) Success(acc,next)
+          else (next.first, next.rest) match {
+            case('&',next) => concat(next) match{
+              case Success(r,next) => intersections(RIntersect(acc,r), next)
+              case _ => Failure("expected concat", next)
+            }
+            case _ => Success(acc,next)
+          }
+        intersections(r,next)
+      }
+      case _ => Failure("expected concat", next)
+    }
 
-    def not(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def concat(next: Input): ParseResult[RegExpr] = not(next) match{
+      case Success(r,next) => println("In concat"); {
+        def concats(acc: RegExpr, next:Input): ParseResult[RegExpr] =
+          if(next.atEnd) Success(acc,next)
+          else (next.first, next.rest) match {
+            case(_,next) => concats(RConcat(acc,r), next)
+            case _ => Success(acc,next)
+          }
+        concats(r,next)
+      }
+      case _ => Failure("expected something", next)
+    }
 
-    def star(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def not(next: Input): ParseResult[RegExpr] = (next.first,next.rest) match{
+      case ('~',next) => not(next) map RNeg
+      case _ => star(next)
+    }
+
+    def star(next: Input): ParseResult[RegExpr] = atom(next) match{
+      case Success(r, next) => println("In Star"); {
+        def stars(acc: RegExpr, next: Input): ParseResult[RegExpr] =
+          if (next.atEnd) Success(acc, next)
+          else (next.first, next.rest) match {
+            case ('*', next) => stars(RStar(acc),next)
+            case ('+', next) => stars(RPlus(acc),next)
+            case ('?', next) => stars(ROption(acc),next)
+            case _ => Success(acc, next)
+          }
+        stars(r, next)
+     }
+      case _ => Failure("expected atom", next)
+    }
 
     /* This set is useful to check if a Char is/is not a regular expression
        meta-language character.  Use delimiters.contains(c) for a Char c. */
     val delimiters = Set('|', '&', '~', '*', '+', '?', '!', '#', '.', '(', ')')
 
-    def atom(next: Input): ParseResult[RegExpr] = throw new UnsupportedOperationException
+    def atom(next: Input): ParseResult[RegExpr] =
+      if (next.atEnd) Failure("expected atom", next)
+      else (next.first, next.rest) match {
+        case ('!', next) => Success(RNoString, next)
+        case ('#', next) => Success(REmptyString, next)
+        case ('.', next) => Success(RAnyChar, next)
+        case ('(', next) => re(next) match {
+          case Success(r, next) => (next.first, next.rest) match {
+            case (')', next) => Success(r, next)
+            case _ => Failure("unmatched (", next)
+          }
+          case fail => fail
+        }
+        case (c, next) if (!delimiters.contains(c)) => Success(RSingle(c), next)
+        case _ => Failure("expected atom", next)
+      }
     
 
     /* External Interface */
@@ -97,7 +176,7 @@ object Lab6 extends jsy.util.JsyApplication {
   
 
   /*** Regular Expression Matching ***/
-  
+
   def retest(re: RegExpr, s: String): Boolean = {
     def test(re: RegExpr, chars: List[Char], sc: List[Char] => Boolean): Boolean = {
       (re, chars) match {
@@ -127,8 +206,6 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RNeg(re1), _) => !test(re1, chars, sc)
       }
     }
-    println(s);
-    println(re);
     test(re, s.toList, { chars => chars.isEmpty })
   }
   
@@ -164,7 +241,7 @@ object Lab6 extends jsy.util.JsyApplication {
   this.debug = true // comment this out or set to false if you don't want print debugging information
   this.maxSteps = Some(500) // comment this out or set to None to not bound the number of steps.
 
-  var useReferenceRegExprParser = true /* set to true to use the reference parser */
+  var useReferenceRegExprParser = false /* set to true to use the reference parser */
   var useReferenceJsyInterpreter = true /* set to false to use your JavaScripty interpreter */
 
   this.flagOptions = this.flagOptions ++ List(
