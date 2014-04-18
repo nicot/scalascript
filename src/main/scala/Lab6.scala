@@ -164,7 +164,7 @@ object Lab6 extends jsy.util.JsyApplication {
         case (RConcat(re1, re2), _) => test(re1, chars, {rest => test(re2, rest, sc)})
         case (RUnion(re1, re2), _) => test(re1, chars, sc) || test(re2, chars, sc)
         case (RStar(re1), Nil) => true
-        case (RStar(re1), _) => test(re1, chars, {rest => test(re, rest, sc)}) || sc(chars)
+        case (RStar(re1), _) => sc(chars) || test(re1, chars, {rest => if (chars == rest) false else test(re, rest, sc)})
 
         /* Extended Operators */
         case (RAnyChar, Nil) => false
@@ -174,8 +174,8 @@ object Lab6 extends jsy.util.JsyApplication {
         case (ROption(re1), h::t) => sc(chars) || test(re1, chars, sc)
         
         /***** Extra Credit Cases *****/
-        case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
-        case (RNeg(re1), _) => !test(re1, chars, sc)
+        case (RIntersect(re1, re2), _) => test(re1, chars, { _ => test(re2, chars, sc)})
+        case (RNeg(re1), _) => sc(chars) && !test(re1, chars, sc)
       }
     }
     test(re, s.toList, { chars => chars.isEmpty })
