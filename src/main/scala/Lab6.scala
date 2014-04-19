@@ -89,7 +89,10 @@ object Lab6 extends jsy.util.JsyApplication {
         def concats(acc: RegExpr, next:Input): ParseResult[RegExpr] =
           if(next.atEnd) Success(acc,next)
           else (next.first, next.rest) match {
-            case(_,next) => concats(RConcat(acc,r), next)
+            case(' ',next) => not(next) match {
+              case Success(r,next) => concats(RConcat(acc,r), next)
+              case _ => Failure("fail in concat", next)
+            }
             case _ => Success(acc,next)
           }
         concats(r,next)
@@ -97,9 +100,17 @@ object Lab6 extends jsy.util.JsyApplication {
       case _ => Failure("expected something", next)
     }
 
-    def not(next: Input): ParseResult[RegExpr] = (next.first,next.rest) match{
-      case ('~',next) => not(next) map RNeg
-      case _ => star(next)
+    def not(next: Input): ParseResult[RegExpr] = star(next) match {
+      case Success(r,next) =>
+        if (next.atEnd) Success(r,next)
+        else (next.first, next.rest) match {
+          case ('~',next) => star(next) match{
+            case Success(r,next) => Success(RNeg(r),next)
+            case _ => Failure("Expected atom",next)
+          }
+          case _ => Success(r, next)
+        }
+      case _ => Failure("Bad", next)
     }
 
     def star(next: Input): ParseResult[RegExpr] = atom(next) match{
@@ -148,8 +159,8 @@ object Lab6 extends jsy.util.JsyApplication {
     }
 
     def parse(s: String): RegExpr = parse(new CharSequenceReader(s))
-  } 
-  
+  }
+
 
   /*** Regular Expression Matching ***/
 
