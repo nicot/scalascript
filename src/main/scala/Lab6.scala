@@ -90,7 +90,7 @@ object Lab6 extends jsy.util.JsyApplication {
           if(next.atEnd) Success(acc,next)
           else (next.first, next.rest) match {
             case (c, _) if(!myDel.contains(c)) => not(next) match{
-              case Success(r, next) => println(r); concats(RConcat(acc,r),next)
+              case Success(r, next) => concats(RConcat(acc,r),next)
               case _ => Failure("bad", next)
             }
             //TODO find better way to ignore '|', '&', '~',')'
@@ -146,6 +146,10 @@ object Lab6 extends jsy.util.JsyApplication {
             case _ => Failure("unmatched (", next)
           }
           case fail => fail
+        }
+        case ('~',next) => star(next) match{
+          case Success(r,next) => Success(RNeg(r),next)
+          case _ => Failure("Expected atom",next)
         }
         case (c, next) if (!delimiters.contains(c)) => Success(RSingle(c), next)
         case _ => Failure("expected atom", next)
