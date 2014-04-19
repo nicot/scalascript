@@ -52,7 +52,7 @@ object Lab6 extends jsy.util.JsyApplication {
     def re(next: Input): ParseResult[RegExpr] = union(next)
 
     def union(next: Input): ParseResult[RegExpr] = intersect(next) match {
-      case Success(r, next) => {
+      case Success(r, next) => println("Union ",r,next.first); {
         def unions(acc: RegExpr, next: Input): ParseResult[RegExpr] =
           if (next.atEnd) Success(acc, next)
           else (next.first, next.rest) match {
@@ -69,7 +69,7 @@ object Lab6 extends jsy.util.JsyApplication {
 
 
     def intersect(next: Input): ParseResult[RegExpr] = concat(next) match{
-      case Success(r,next) => println("In intersect"); {
+      case Success(r,next) => println("intersect ",r,next.first); {
         def intersections(acc: RegExpr, next:Input): ParseResult[RegExpr] =
           if(next.atEnd) Success(acc,next)
           else (next.first, next.rest) match {
@@ -85,15 +85,16 @@ object Lab6 extends jsy.util.JsyApplication {
     }
 
     def concat(next: Input): ParseResult[RegExpr] = not(next) match{
-      case Success(r,next) => println("In concat"); {
+      case Success(r,next) => println("Concat ",r,next.first); {
         def concats(acc: RegExpr, next:Input): ParseResult[RegExpr] =
           if(next.atEnd) Success(acc,next)
           else (next.first, next.rest) match {
-            case(' ',next) => not(next) match {
-              case Success(r,next) => concats(RConcat(acc,r), next)
-              case _ => Failure("fail in concat", next)
+            case (c, _) if(!myDel.contains(c)) => not(next) match{
+              case Success(r, next) => println(r); concats(RConcat(acc,r),next)
+              case _ => Failure("bad", next)
             }
-            case _ => Success(acc,next)
+            //TODO find better way to ignore '|', '&', '~',')'
+            case _ => Success(acc, next)
           }
         concats(r,next)
       }
@@ -101,7 +102,7 @@ object Lab6 extends jsy.util.JsyApplication {
     }
 
     def not(next: Input): ParseResult[RegExpr] = star(next) match {
-      case Success(r,next) =>
+      case Success(r,next) => println("Not ",r,next.first);
         if (next.atEnd) Success(r,next)
         else (next.first, next.rest) match {
           case ('~',next) => star(next) match{
@@ -114,7 +115,7 @@ object Lab6 extends jsy.util.JsyApplication {
     }
 
     def star(next: Input): ParseResult[RegExpr] = atom(next) match{
-      case Success(r, next) => println("In Star"); {
+      case Success(r, next) => println("Star ",r,next.first); {
         def stars(acc: RegExpr, next: Input): ParseResult[RegExpr] =
           if (next.atEnd) Success(acc, next)
           else (next.first, next.rest) match {
@@ -131,6 +132,7 @@ object Lab6 extends jsy.util.JsyApplication {
     /* This set is useful to check if a Char is/is not a regular expression
        meta-language character.  Use delimiters.contains(c) for a Char c. */
     val delimiters = Set('|', '&', '~', '*', '+', '?', '!', '#', '.', '(', ')')
+    val myDel = Set('|', '&', '~',')')
 
     def atom(next: Input): ParseResult[RegExpr] =
       if (next.atEnd) Failure("expected atom", next)
