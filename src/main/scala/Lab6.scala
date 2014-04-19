@@ -191,7 +191,12 @@ object Lab6 extends jsy.util.JsyApplication {
         
         /***** Extra Credit Cases *****/
         case (RIntersect(re1, re2), _) => test(re1, chars, sc) && test(re2, chars, sc)
-        case (RNeg(re1), _) => !test(re1, chars, {rest => rest.isEmpty}) || (sc(chars) && !chars.isEmpty)
+        case (RNeg(re1), _) => re1 match {
+          case REmptyString => !test(re1, chars, sc)
+          case _ =>
+            (!test(re1, chars, {rest => rest.isEmpty}) && sc(Nil)) ||
+            (!test(re1, Nil, {rest => rest.isEmpty}) && sc(chars))
+        }
       }
     }
     test(re, s.toList, { chars => chars.isEmpty })
